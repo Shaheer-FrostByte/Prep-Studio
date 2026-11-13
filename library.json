@@ -1,0 +1,5 @@
+[
+  { "title": "MCQs - OS1", "type": "mcq", "file": "mcqs/os1.json" },
+  { "title": "Flashcards - OS1", "type": "flashcards", "file": "flashcards/os1.json" },
+  { "title": "Short Q&A - OS1", "type": "qa", "file": "question-answers/os1.json" }
+]

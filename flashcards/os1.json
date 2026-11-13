@@ -1,0 +1,7 @@
+[
+  { "front": "Process", "back": "A program in execution, with its own address space, state, and resources." },
+  { "front": "Thread", "back": "A lightweight unit of execution inside a process. Threads of one process share its memory and resources." },
+  { "front": "Deadlock", "back": "A situation where processes wait forever for resources held by each other." },
+  { "front": "Context switch", "back": "Saving the state of the running process and loading the state of the next one so the CPU can switch between them." },
+  { "front": "Semaphore", "back": "A synchronization variable used to control access to shared resources, changed with wait and signal operations." }
+]

@@ -6,229 +6,389 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StudyTool – Learn with AI</title>
     <link rel="stylesheet" href="style.css" />
+    <script defer src="js/alpine.min.js"></script>
+    <script src="app.js"></script>
 </head>
 
-<body>
+<body x-data="app()" x-cloak>
 
-    <nav>
-        <span class="brand">📘 StudyTool</span>
-        <a class="active" data-page="page-home">Home</a>
-        <a data-page="page-mcq">MCQ Quiz</a>
-        <a data-page="page-flashcards">Flashcards</a>
-        <a data-page="page-qa">Short Q&A</a>
-    </nav>
+    <!-- ========== TOP BAR ========== -->
+    <header class="topbar">
+        <div class="topbar-inner">
+            <button class="menu-btn" @click="menuOpen = true" aria-label="Open menu">☰</button>
+            <a class="brand" href="#/home">📘 StudyTool</a>
+            <nav class="topnav" aria-label="Main">
+                <a href="#/home" :class="{ active: route === 'home' }">Home</a>
+                <a href="#/mcq" :class="{ active: route === 'mcq' }">MCQ Quiz</a>
+                <a href="#/flashcards" :class="{ active: route === 'flashcards' }">Flashcards</a>
+                <a href="#/qa" :class="{ active: route === 'qa' }">Short Q&amp;A</a>
+                <a href="#/library" :class="{ active: route === 'library' || route === 'test' }">Published Tests</a>
+            </nav>
+        </div>
+    </header>
 
-    <!-- ========== PAGE 1: HOME / GUIDE ========== -->
-    <section id="page-home" class="page active">
-        <div class="card">
-            <h1>📘 StudyTool – Learn with AI‑Generated Content</h1>
-            <p style="font-size:1.1rem; margin:0.5rem 0 1rem;">
-                Paste JSON from your AI agent, practise interactively, and export results back for grading.
-            </p>
-            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; margin:1.5rem 0;">
-                <div><strong>✅ MCQ Quiz</strong> – Multiple‑choice with instant scoring.</div>
-                <div><strong>🃏 Flashcards</strong> – Flip and review at your own pace.</div>
-                <div><strong>✍️ Short Q&A</strong> – Answer open‑ended questions, get AI‑ready output.</div>
-            </div>
+    <!-- ========== MOBILE MENU ========== -->
+    <div class="overlay" x-show="menuOpen" x-transition.opacity @click="menuOpen = false"></div>
+    <aside class="drawer" :class="{ open: menuOpen }" aria-label="Menu">
+        <div class="drawer-head">
+            <span class="brand">📘 StudyTool</span>
+            <button class="menu-close" @click="menuOpen = false" aria-label="Close menu">✕</button>
         </div>
 
-        <!-- 3‑Step Workflow -->
-        <div class="card">
-            <h2>⚡ The 3‑Step Workflow</h2>
-            <div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0;">
-                <div style="flex:1; min-width:150px; background:#f1f5f9; padding:1rem; border-radius:10px;">
-                    <strong>1. Generate</strong><br />
-                    Ask your AI to create questions in the required JSON format.
-                </div>
-                <div style="flex:1; min-width:150px; background:#f1f5f9; padding:1rem; border-radius:10px;">
-                    <strong>2. Paste &amp; Start</strong><br />
-                    Copy the JSON into the corresponding page and click <em>Generate</em>.
-                </div>
-                <div style="flex:1; min-width:150px; background:#f1f5f9; padding:1rem; border-radius:10px;">
-                    <strong>3. Interact / Export</strong><br />
-                    Take the quiz, flip cards, or answer questions – then copy the output.
+        <a href="#/home" :class="{ active: route === 'home' }">Home</a>
+        <a href="#/mcq" :class="{ active: route === 'mcq' }">MCQ Quiz</a>
+        <a href="#/flashcards" :class="{ active: route === 'flashcards' }">Flashcards</a>
+        <a href="#/qa" :class="{ active: route === 'qa' }">Short Q&amp;A</a>
+
+        <div class="drawer-label">Published tests</div>
+        <p class="drawer-note" x-show="libraryState === 'loading'">Loading…</p>
+        <p class="drawer-note" x-show="libraryState === 'error'">Couldn't load the tests.</p>
+        <p class="drawer-note" x-show="libraryState === 'ready' && library.length === 0">No tests yet.</p>
+        <template x-for="t in library" :key="t.file">
+            <a :href="testHref(t)" :class="{ active: route === 'test' && testFile === t.file }" x-text="t.title"></a>
+        </template>
+    </aside>
+
+    <main class="main">
+
+        <!-- ========== HOME ========== -->
+        <section class="page" x-show="route === 'home'">
+            <div class="card">
+                <h1>📘 StudyTool</h1>
+                <p class="lead">Practise with AI-generated questions, and export your answers back for grading.</p>
+                <div class="actions">
+                    <a class="btn" href="#/library">Take a published test</a>
                 </div>
             </div>
-        </div>
 
-        <!-- Data Schemas -->
-        <div class="card">
-            <h2>📐 Input Schemas (copy‑paste into your AI)</h2>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:1rem;">
-                <div>
-                    <strong>MCQ</strong>
-                    <pre
-                        style="background:#f8fafc; padding:0.75rem; border-radius:8px; font-size:0.8rem; overflow-x:auto;">
-[{"question":"...","options":["A","B"],"answer":"A"}]</pre>
-                </div>
-                <div>
-                    <strong>Flashcards</strong>
-                    <pre
-                        style="background:#f8fafc; padding:0.75rem; border-radius:8px; font-size:0.8rem; overflow-x:auto;">
-[{"front":"Term","back":"Definition"}]</pre>
-                </div>
-                <div>
-                    <strong>Short Q&A (input)</strong>
-                    <pre
-                        style="background:#f8fafc; padding:0.75rem; border-radius:8px; font-size:0.8rem; overflow-x:auto;">
-[{"question":"What is ...?"}]</pre>
+            <div class="card">
+                <h2>Three ways to practise</h2>
+                <div class="grid grid-3">
+                    <div class="tile">
+                        <strong>✅ MCQ Quiz</strong>
+                        <p>Multiple choice with instant scoring.</p>
+                    </div>
+                    <div class="tile">
+                        <strong>🃏 Flashcards</strong>
+                        <p>Flip and review at your own pace.</p>
+                    </div>
+                    <div class="tile">
+                        <strong>✍️ Short Q&amp;A</strong>
+                        <p>Answer open-ended questions and get AI-ready output.</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Short Q&A Detailed Guide -->
-        <div class="card" style="border-left:4px solid #3b82f6;">
-            <h2>✍️ Short Q&A – Step‑by‑Step</h2>
-            <ol style="margin-left:1.2rem; line-height:2;">
-                <li><strong>Ask your AI</strong> for questions in the input schema above.</li>
-                <li><strong>Paste</strong> the JSON into the Short Q&A page and click <em>Start</em>.</li>
-                <li><strong>Answer</strong> each question in the multi‑line box – use <em>Prev</em>/<em>Next</em>.</li>
-                <li><strong>Finish</strong> – click <em>Finish &amp; Generate Output</em>.</li>
-                <li><strong>Copy</strong> the entire output JSON (it includes a built‑in instruction) and paste it
-                    directly into your AI – <strong>no extra typing needed</strong>.</li>
-            </ol>
-            <div style="margin-top:1rem; background:#f0f9ff; padding:0.75rem; border-radius:8px;">
-                <strong>Output example (with instruction):</strong>
-                <pre style="background:#f8fafc; padding:0.5rem; border-radius:6px; font-size:0.8rem; overflow-x:auto;">
-{
+            <div class="card">
+                <h2>⚡ The 3-step workflow</h2>
+                <div class="grid grid-3">
+                    <div class="tile">
+                        <strong>1. Generate</strong>
+                        <p>Ask your AI to create questions in the required JSON format.</p>
+                    </div>
+                    <div class="tile">
+                        <strong>2. Paste &amp; start</strong>
+                        <p>Copy the JSON into the matching page and click <em>Generate</em>.</p>
+                    </div>
+                    <div class="tile">
+                        <strong>3. Practise &amp; export</strong>
+                        <p>Take the quiz, flip cards, or answer questions, then copy the output.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📐 Input formats</h2>
+                <p>Copy these into your AI so it generates questions in the right shape.</p>
+                <div class="stack">
+                    <div class="code-block" x-data="{ copied: false }">
+                        <div class="code-head">
+                            <span>MCQ</span>
+                            <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
+                        </div>
+                        <pre x-ref="code">[
+  {
+    "question": "...",
+    "options": ["A", "B", "C", "D"],
+    "answer": "A"
+  }
+]</pre>
+                    </div>
+
+                    <div class="code-block" x-data="{ copied: false }">
+                        <div class="code-head">
+                            <span>Flashcards</span>
+                            <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
+                        </div>
+                        <pre x-ref="code">[
+  {
+    "front": "Term",
+    "back": "Definition"
+  }
+]</pre>
+                    </div>
+
+                    <div class="code-block" x-data="{ copied: false }">
+                        <div class="code-head">
+                            <span>Short Q&amp;A (input)</span>
+                            <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
+                        </div>
+                        <pre x-ref="code">[
+  {
+    "question": "What is ...?"
+  }
+]</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>✍️ Short Q&amp;A step by step</h2>
+                <ol class="steps">
+                    <li><strong>Ask your AI</strong> for questions in the input format above.</li>
+                    <li><strong>Paste</strong> the JSON into the Short Q&amp;A page and click <em>Start</em>.</li>
+                    <li><strong>Answer</strong> each question in the text box. Use <em>Previous</em> and <em>Next</em> to move around.</li>
+                    <li><strong>Finish</strong> by clicking <em>Finish &amp; Generate Output</em>.</li>
+                    <li><strong>Copy</strong> the output (it includes a built-in instruction) and paste it straight into your AI. No extra typing needed.</li>
+                </ol>
+                <h3>Output example</h3>
+                <div class="code-block" x-data="{ copied: false }">
+                    <div class="code-head">
+                        <span>Output with instruction</span>
+                        <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
+                    </div>
+                    <pre x-ref="code">{
   "instruction": "Review the user's answers. Mark each as correct/incorrect. If incorrect, provide the correct answer or a brief explanation.",
   "qa_pairs": [
-    {"question":"...","user_answer":"..."}
+    {
+      "question": "...",
+      "user_answer": "..."
+    }
   ]
 }</pre>
+                </div>
             </div>
-        </div>
 
-        <!-- Ready‑to‑use prompts -->
-        <div class="card">
-            <h2>🤖 Copy‑Paste Prompts for Your AI</h2>
-            <ul style="margin-left:1.2rem; line-height:2;">
-                <li><strong>MCQ:</strong>
-                    <code>"Generate 10 MCQs about [topic] in JSON: [{"question":"...","options":["..."],"answer":"..."}]"</code>
-                </li>
-                <li><strong>Flashcards:</strong>
-                    <code>"Generate 15 flashcards about [topic] in JSON: [{"front":"...","back":"..."}]"</code></li>
-                <li><strong>Short Q&A:</strong>
-                    <code>"Generate 8 short questions about [topic] in JSON: [{"question":"..."}]"</code></li>
-            </ul>
-        </div>
-
-        <div class="card" style="background:#f1f5f9; text-align:center;">
-            👉 Ready? Click <strong>MCQ Quiz</strong>, <strong>Flashcards</strong>, or <strong>Short Q&A</strong> in the
-            nav bar.
-        </div>
-    </section>
-
-    <!-- ========== PAGE 2: MCQ ========== -->
-    <section id="page-mcq" class="page">
-        <div class="card">
-            <h2>📝 MCQ Quiz Generator</h2>
-            <p>Paste your MCQ data in the format below, then click <strong>Generate Quiz</strong>.</p>
-            <div class="format-hint">
-                [ { "question": "What is 2+2?", "options": ["3","4","5","6"], "answer": "4" } ]
-            </div>
-            <textarea
-                id="mcq-input">[{"question":"What is 2+2?","options":["3","4","5","6"],"answer":"4"},{"question":"Capital of France?","options":["London","Paris","Berlin","Madrid"],"answer":"Paris"}]</textarea>
-            <button class="btn" id="generate-mcq">🚀 Generate Quiz</button>
-            <div id="mcq-error" class="error-msg"></div>
-        </div>
-
-        <div id="mcq-quiz-area" style="display:none;">
-            <div class="card" id="mcq-questions-container"></div>
-            <div class="card" id="mcq-submit-area" style="display:none;">
-                <button class="btn btn-success" id="submit-mcq">✅ Check Answers</button>
-            </div>
-            <div id="mcq-results" class="card" style="display:none;"></div>
-        </div>
-    </section>
-
-    <!-- ========== PAGE 3: FLASHCARDS ========== -->
-    <section id="page-flashcards" class="page">
-        <div class="card">
-            <h2>🃏 Flashcard Generator</h2>
-            <p>Paste your flashcard data in the format below, then click <strong>Generate Flashcards</strong>.</p>
-            <div class="format-hint">
-                [ { "front": "HTML", "back": "HyperText Markup Language" } ]
-            </div>
-            <textarea
-                id="flashcard-input">[{"front":"HTML","back":"HyperText Markup Language"},{"front":"CSS","back":"Cascading Style Sheets"},{"front":"JS","back":"JavaScript"}]</textarea>
-            <button class="btn" id="generate-flashcards">🚀 Generate Flashcards</button>
-            <div id="flashcard-error" class="error-msg"></div>
-        </div>
-
-        <div id="flashcard-area" style="display:none;">
             <div class="card">
-                <div class="flashcard-container">
-                    <div class="flashcard" id="flashcard-display">
+                <h2>🤖 Prompts to copy into your AI</h2>
+                <p>Replace <code>[topic]</code> with what you're studying.</p>
+                <div class="stack">
+                    <div class="code-block" x-data="{ copied: false }">
+                        <div class="code-head">
+                            <span>MCQ prompt</span>
+                            <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
+                        </div>
+                        <pre class="wrap" x-ref="code">Generate 10 MCQs about [topic] in JSON: [{"question":"...","options":["..."],"answer":"..."}]</pre>
+                    </div>
+
+                    <div class="code-block" x-data="{ copied: false }">
+                        <div class="code-head">
+                            <span>Flashcards prompt</span>
+                            <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
+                        </div>
+                        <pre class="wrap" x-ref="code">Generate 15 flashcards about [topic] in JSON: [{"front":"...","back":"..."}]</pre>
+                    </div>
+
+                    <div class="code-block" x-data="{ copied: false }">
+                        <div class="code-head">
+                            <span>Short Q&amp;A prompt</span>
+                            <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
+                        </div>
+                        <pre class="wrap" x-ref="code">Generate 8 short questions about [topic] in JSON: [{"question":"..."}]</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PUBLISHED TESTS LIST ========== -->
+        <section class="page" x-show="route === 'library'">
+            <div class="card">
+                <h2>Published tests</h2>
+                <p>Pick a test to start. No setup needed.</p>
+
+                <p class="muted" x-show="libraryState === 'loading'">Loading tests…</p>
+
+                <div class="notice notice-error" x-show="libraryState === 'error'">
+                    <strong>Couldn't load the tests.</strong>
+                    <span x-text="libraryError"></span>
+                </div>
+
+                <p class="muted" x-show="libraryState === 'ready' && library.length === 0">
+                    No tests have been published yet.
+                </p>
+
+                <div class="test-list" x-show="library.length > 0">
+                    <template x-for="t in library" :key="t.file">
+                        <a class="test-item" :href="testHref(t)">
+                            <span class="test-title" x-text="t.title"></span>
+                            <span class="test-kind" x-text="kindLabel(t.type)"></span>
+                        </a>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PUBLISHED TEST HEADER (loading / error) ========== -->
+        <section class="page" x-show="route === 'test'">
+            <div class="card">
+                <a class="back-link" href="#/library">← All tests</a>
+                <h2 x-text="test.title || 'Loading test…'"></h2>
+                <p class="muted" x-show="test.state === 'loading'">Loading…</p>
+                <div class="notice notice-error" x-show="test.state === 'error'">
+                    <strong>Couldn't open this test.</strong>
+                    <span x-text="test.error"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== MCQ (paste page + published tests) ========== -->
+        <section class="page" x-show="showType('mcq')">
+            <div class="card" x-show="route === 'mcq'">
+                <h2>📝 MCQ Quiz</h2>
+                <p>Paste your MCQ data in this format, then click <strong>Generate Quiz</strong>.</p>
+                <div class="code-block">
+                    <div class="code-head"><span>Format</span></div>
+                    <pre>[
+  {
+    "question": "...",
+    "options": ["A", "B", "C", "D"],
+    "answer": "A"
+  }
+]</pre>
+                </div>
+                <label class="field-label" for="mcq-input">Your JSON</label>
+                <textarea id="mcq-input" x-model="mcq.input" placeholder="Paste your JSON here…"></textarea>
+                <div class="actions">
+                    <button class="btn" @click="generateMcq()">🚀 Generate Quiz</button>
+                </div>
+                <div class="notice notice-error" x-show="mcq.error" x-text="'❌ ' + mcq.error"></div>
+            </div>
+
+            <div class="stack" x-show="mcq.questions.length > 0">
+                <template x-for="(q, i) in mcq.questions" :key="i">
+                    <div class="card question">
+                        <div class="q-text" x-text="(i + 1) + '. ' + q.question"></div>
+                        <div class="options">
+                            <template x-for="(opt, oi) in q.options" :key="oi">
+                                <label class="option" :class="optionClass(q, i, opt)">
+                                    <input type="radio" :name="'mcq-' + i" :value="opt" x-model="mcq.answers[i]" :disabled="mcq.checked" />
+                                    <span x-text="opt"></span>
+                                </label>
+                            </template>
+                        </div>
+                        <p class="feedback" x-show="mcq.checked" :class="feedbackClass(q, i)" x-text="feedbackText(q, i)"></p>
+                    </div>
+                </template>
+
+                <div class="card" x-show="!mcq.checked">
+                    <button class="btn btn-success" @click="checkMcq()">✅ Check Answers</button>
+                </div>
+
+                <div class="card result" x-show="mcq.checked">
+                    <div class="score">
+                        <span class="score-num" x-text="mcq.score + ' / ' + mcq.questions.length"></span>
+                        <span class="muted" x-text="'(' + Math.round((mcq.score / mcq.questions.length) * 100) + '%)'"></span>
+                    </div>
+                    <div class="actions">
+                        <button class="btn btn-secondary" @click="retakeMcq()">🔄 Retake</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FLASHCARDS (paste page + published tests) ========== -->
+        <section class="page" x-show="showType('flashcards')">
+            <div class="card" x-show="route === 'flashcards'">
+                <h2>🃏 Flashcards</h2>
+                <p>Paste your flashcard data in this format, then click <strong>Generate Flashcards</strong>.</p>
+                <div class="code-block">
+                    <div class="code-head"><span>Format</span></div>
+                    <pre>[
+  {
+    "front": "Term",
+    "back": "Definition"
+  }
+]</pre>
+                </div>
+                <label class="field-label" for="fc-input">Your JSON</label>
+                <textarea id="fc-input" x-model="fc.input" placeholder="Paste your JSON here…"></textarea>
+                <div class="actions">
+                    <button class="btn" @click="generateFlashcards()">🚀 Generate Flashcards</button>
+                </div>
+                <div class="notice notice-error" x-show="fc.error" x-text="'❌ ' + fc.error"></div>
+            </div>
+
+            <div class="card" x-show="fc.cards.length > 0">
+                <div class="flashcard-wrap">
+                    <div class="flashcard" :class="{ flipped: fc.flipped }" @click="fc.flipped = !fc.flipped"
+                        @keydown.enter.prevent="fc.flipped = !fc.flipped" @keydown.space.prevent="fc.flipped = !fc.flipped"
+                        tabindex="0" role="button" aria-label="Flip card">
                         <div class="flashcard-inner">
-                            <div class="flashcard-front" id="fc-front">Front</div>
-                            <div class="flashcard-back" id="fc-back">Back</div>
+                            <div class="flashcard-face flashcard-front" x-text="fc.cards[fc.index]?.front"></div>
+                            <div class="flashcard-face flashcard-back" x-text="fc.cards[fc.index]?.back"></div>
                         </div>
                     </div>
+                    <p class="muted center">Tap the card to flip it</p>
                     <div class="flashcard-nav">
-                        <button class="btn btn-secondary" id="fc-prev">◀ Prev</button>
-                        <span id="fc-counter">1 / 1</span>
-                        <button class="btn btn-secondary" id="fc-next">Next ▶</button>
-                        <button class="btn" id="fc-flip">🔄 Flip</button>
+                        <button class="btn btn-secondary" @click="fcMove(-1)">◀ Prev</button>
+                        <span class="counter" x-text="(fc.index + 1) + ' / ' + fc.cards.length"></span>
+                        <button class="btn btn-secondary" @click="fcMove(1)">Next ▶</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ========== PAGE 4: SHORT Q&A ========== -->
-    <section id="page-qa" class="page">
-        <div class="card">
-            <h2>✍️ Short Q&A Generator</h2>
-            <p>Paste your questions in the format below, then click <strong>Start Q&A Session</strong>.</p>
-            <div class="format-hint">
-                [ { "question": "What is the capital of France?" } ]
+        <!-- ========== SHORT Q&A (paste page + published tests) ========== -->
+        <section class="page" x-show="showType('qa')">
+            <div class="card" x-show="route === 'qa'">
+                <h2>✍️ Short Q&amp;A</h2>
+                <p>Paste your questions in this format, then click <strong>Start Q&amp;A Session</strong>.</p>
+                <div class="code-block">
+                    <div class="code-head"><span>Format</span></div>
+                    <pre>[
+  {
+    "question": "What is ...?"
+  }
+]</pre>
+                </div>
+                <label class="field-label" for="qa-input">Your JSON</label>
+                <textarea id="qa-input" x-model="qa.input" placeholder="Paste your JSON here…"></textarea>
+                <div class="actions">
+                    <button class="btn" @click="startQa()">🚀 Start Q&amp;A Session</button>
+                </div>
+                <div class="notice notice-error" x-show="qa.error" x-text="'❌ ' + qa.error"></div>
             </div>
-            <textarea
-                id="qa-input">[{"question":"What is the capital of France?"},{"question":"Explain the theory of relativity in one sentence."},{"question":"What is the chemical symbol for water?"}]</textarea>
-            <button class="btn" id="start-qa">🚀 Start Q&A Session</button>
-            <div id="qa-error" class="error-msg"></div>
-        </div>
 
-        <div id="qa-session" style="display:none;">
-            <div class="card">
-                <div
-                    style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:1rem;">
-                    <span id="qa-progress" style="font-weight:600; color:#475569;">Question 1 / 3</span>
-                    <span id="qa-status" style="font-size:0.9rem; color:#64748b;">Answer below</span>
+            <div class="card" x-show="qa.questions.length > 0 && !qa.finished">
+                <div class="qa-meta">
+                    <span class="qa-progress" x-text="'Question ' + (qa.index + 1) + ' / ' + qa.questions.length"></span>
+                    <span class="muted" x-text="qa.index === qa.questions.length - 1 ? 'Last question. Click Finish when done.' : 'Answer below'"></span>
                 </div>
-                <div id="qa-question-display"
-                    style="font-size:1.3rem; font-weight:600; margin-bottom:1rem; color:#0f172a;">
-                    Question text here
-                </div>
-                <textarea id="qa-answer-input" rows="4" placeholder="Type your answer here…"
-                    style="width:100%; padding:0.75rem; border:1px solid #d1d5db; border-radius:10px; font-size:1rem; resize:vertical;"></textarea>
-                <div style="display:flex; gap:1rem; margin-top:1.5rem; flex-wrap:wrap;">
-                    <button class="btn btn-secondary" id="qa-prev">◀ Previous</button>
-                    <button class="btn" id="qa-next">Next ▶</button>
-                    <button class="btn btn-success" id="qa-finish" style="display:none;">🏁 Finish &amp; Generate
-                        Output</button>
+                <div class="qa-question" x-text="qa.questions[qa.index]?.question"></div>
+                <textarea class="qa-answer" x-model="qa.answers[qa.index]" placeholder="Type your answer here…"></textarea>
+                <div class="actions">
+                    <button class="btn btn-secondary" x-show="qa.index > 0" @click="qa.index--">◀ Previous</button>
+                    <button class="btn" x-show="qa.index < qa.questions.length - 1" @click="qa.index++">Next ▶</button>
+                    <button class="btn btn-success" x-show="qa.index === qa.questions.length - 1" @click="finishQa()">🏁 Finish &amp; Generate Output</button>
                 </div>
             </div>
-        </div>
 
-        <div id="qa-output-area" style="display:none;">
-            <div class="card">
-                <h3>📤 Output – Copy &amp; paste into your AI</h3>
-                <p style="margin-bottom:0.5rem;">The JSON below includes a built‑in instruction. Just copy the whole
-                    block.</p>
-                <textarea id="qa-output" readonly
-                    style="width:100%; min-height:180px; padding:0.75rem; border:1px solid #d1d5db; border-radius:10px; background:#f8fafc; font-family:'Courier New',monospace; font-size:0.9rem;"></textarea>
-                <button class="btn" id="qa-copy-btn">📋 Copy to Clipboard</button>
-                <button class="btn btn-secondary" id="qa-reset-btn" style="margin-left:0.5rem;">🔄 Start Over</button>
-                <div id="qa-copy-msg" style="margin-top:0.5rem; color:#16a34a; font-weight:500;"></div>
+            <div class="card" x-show="qa.finished">
+                <h3>📤 Output: copy and paste into your AI</h3>
+                <p>The JSON below includes a built-in instruction. Just copy the whole block.</p>
+                <textarea class="qa-output" readonly x-model="qa.output"></textarea>
+                <div class="actions">
+                    <button class="btn" @click="copyQaOutput()">📋 Copy to Clipboard</button>
+                    <button class="btn btn-secondary" @click="resetQa()">🔄 Start Over</button>
+                </div>
+                <p class="success-msg" x-show="qa.copyMsg" x-text="qa.copyMsg"></p>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <footer class="footer">Made with ❤️ – Copy, paste, learn.</footer>
 
-    <script src="script.js"></script>
 </body>
 
 </html>
