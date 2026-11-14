@@ -1,0 +1,52 @@
+[
+  {
+    "question": "How many types of government are listed in your notes?",
+    "options": ["3", "4", "5", "6"],
+    "answer": "5"
+  },
+  {
+    "question": "Which list contains the five types of government?",
+    "options": ["Democracy, dictatorship, monarchy, parliamentary, presidential", "Democracy, state, nation, society, community", "Monarchy, economy, religion, family, education", "Parliamentary, civil, social, cultural, political"],
+    "answer": "Democracy, dictatorship, monarchy, parliamentary, presidential"
+  },
+  {
+    "question": "In which type of government does one person or group hold absolute power?",
+    "options": ["Democracy", "Dictatorship", "Parliamentary", "Presidential"],
+    "answer": "Dictatorship"
+  },
+  {
+    "question": "In a monarchy, power is held by a:",
+    "options": ["Hereditary king or queen", "Elected president", "Prime minister", "Group of citizens"],
+    "answer": "Hereditary king or queen"
+  },
+  {
+    "question": "Pakistan has which form of government?",
+    "options": ["Presidential", "Absolute monarchy", "Dictatorship", "Parliamentary"],
+    "answer": "Parliamentary"
+  },
+  {
+    "question": "Which country is an example of a presidential system?",
+    "options": ["Pakistan", "UK", "USA", "Saudi Arabia"],
+    "answer": "USA"
+  },
+  {
+    "question": "How many functions of government are listed in your notes?",
+    "options": ["4", "5", "6", "8"],
+    "answer": "6"
+  },
+  {
+    "question": "Which of the following is NOT one of the six functions of government?",
+    "options": ["Economic", "Entertainment", "Health", "Education"],
+    "answer": "Entertainment"
+  },
+  {
+    "question": "Pollution control is part of which government function?",
+    "options": ["Cultural", "Political", "Environment", "Economic"],
+    "answer": "Environment"
+  },
+  {
+    "question": "Preserving heritage and language is part of which government function?",
+    "options": ["Cultural", "Economic", "Health", "Political"],
+    "answer": "Cultural"
+  }
+]

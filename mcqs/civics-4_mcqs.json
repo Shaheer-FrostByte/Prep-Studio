@@ -1,0 +1,52 @@
+[
+  {
+    "question": "In a modern society, laws are applied:",
+    "options": ["Only to the poor", "Only to the rich", "Equally to all citizens", "Only to non-citizens"],
+    "answer": "Equally to all citizens"
+  },
+  {
+    "question": "Justice, equality, and freedom are given to all citizens regardless of:",
+    "options": ["Class, caste, race, religion, and language", "Their loyalty to the nation", "Their obedience to the law", "Their age only"],
+    "answer": "Class, caste, race, religion, and language"
+  },
+  {
+    "question": "Strategies of check and balance are present in:",
+    "options": ["Only the army", "Only the police", "Only the courts", "All institutions such as education, economy, and religion"],
+    "answer": "All institutions such as education, economy, and religion"
+  },
+  {
+    "question": "A modern society establishes a stable economic system and:",
+    "options": ["Public infrastructure", "Private armies", "Fixed social classes", "Tax-free zones for all"],
+    "answer": "Public infrastructure"
+  },
+  {
+    "question": "All citizens of a modern society are considered part of the:",
+    "options": ["Ruling family", "Nation or country", "Army", "Government only"],
+    "answer": "Nation or country"
+  },
+  {
+    "question": "Ascribed status is gained by:",
+    "options": ["Birth", "Hard work", "Education", "Profession"],
+    "answer": "Birth"
+  },
+  {
+    "question": "Achieved status is gained by:",
+    "options": ["Birth", "Effort, such as struggle, profession, or power", "Family name", "Caste"],
+    "answer": "Effort, such as struggle, profession, or power"
+  },
+  {
+    "question": "Which of the following is an ascribed status?",
+    "options": ["Doctor", "Engineer", "Caste", "Political leader"],
+    "answer": "Caste"
+  },
+  {
+    "question": "Which of the following is an achieved status?",
+    "options": ["Religion", "Engineer", "Family", "Caste"],
+    "answer": "Engineer"
+  },
+  {
+    "question": "One of the first functions of a modern society towards its citizens is to:",
+    "options": ["Fulfil their basic needs", "Limit their rights", "Divide them by class", "Remove public infrastructure"],
+    "answer": "Fulfil their basic needs"
+  }
+]

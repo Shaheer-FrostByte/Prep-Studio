@@ -1,5 +1,10 @@
 [
-  { "title": "MCQs - OS1", "type": "mcq", "file": "mcqs/os1.json" },
-  { "title": "Flashcards - OS1", "type": "flashcards", "file": "flashcards/os1.json" },
-  { "title": "Short Q&A - OS1", "type": "qa", "file": "question-answers/os1.json" }
+  { "title": "Civics, Rights, Duties, and Citizenship", "type": "mcq", "file": "mcqs/civics-1_mcqs.json" },
+  { "title": "Society and Social Institutions", "type": "mcq", "file": "mcqs/civics-2_mcqs.json" },
+  { "title": "Social Change and Modern Society", "type": "mcq", "file": "mcqs/civics-3_mcqs.json" },
+  { "title": "Functions of Modern Society and Types of Status", "type": "mcq", "file": "mcqs/civics-4_mcqs.json" },
+  { "title": "State and Functions of State", "type": "mcq", "file": "mcqs/civics-5_mcqs.json" },
+  { "title": "Types and Functions of Government", "type": "mcq", "file": "mcqs/civics-6_mcqs.json" },
+  { "title": "Civil Society and Community Basics", "type": "mcq", "file": "mcqs/civics-7_mcqs.json" },
+  { "title": "Community Development, Engagement, Organisations, and Names", "type": "mcq", "file": "mcqs/civics-8_mcqs.json" }
 ]

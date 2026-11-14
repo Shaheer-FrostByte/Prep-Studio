@@ -22,7 +22,7 @@
                 <a href="#/mcq" :class="{ active: route === 'mcq' }">MCQ Quiz</a>
                 <a href="#/flashcards" :class="{ active: route === 'flashcards' }">Flashcards</a>
                 <a href="#/qa" :class="{ active: route === 'qa' }">Short Q&amp;A</a>
-                <a href="#/library" :class="{ active: route === 'library' || route === 'test' }">Published Tests</a>
+                <a href="#/library" :class="{ active: route === 'library' || route === 'test' }">Practice Tests</a>
             </nav>
         </div>
     </header>
@@ -40,7 +40,7 @@
         <a href="#/flashcards" :class="{ active: route === 'flashcards' }">Flashcards</a>
         <a href="#/qa" :class="{ active: route === 'qa' }">Short Q&amp;A</a>
 
-        <div class="drawer-label">Published tests</div>
+        <div class="drawer-label">Practice tests</div>
         <p class="drawer-note" x-show="libraryState === 'loading'">Loading…</p>
         <p class="drawer-note" x-show="libraryState === 'error'">Couldn't load the tests.</p>
         <p class="drawer-note" x-show="libraryState === 'ready' && library.length === 0">No tests yet.</p>
@@ -57,7 +57,7 @@
                 <h1>📘 StudyTool</h1>
                 <p class="lead">Practise with AI-generated questions, and export your answers back for grading.</p>
                 <div class="actions">
-                    <a class="btn" href="#/library">Take a published test</a>
+                    <a class="btn" href="#/library">Take a practice test</a>
                 </div>
             </div>
 
@@ -200,10 +200,10 @@
             </div>
         </section>
 
-        <!-- ========== PUBLISHED TESTS LIST ========== -->
+        <!-- ========== PRACTICE TESTS LIST ========== -->
         <section class="page" x-show="route === 'library'">
             <div class="card">
-                <h2>Published tests</h2>
+                <h2>Practice tests</h2>
                 <p>Pick a test to start. No setup needed.</p>
 
                 <p class="muted" x-show="libraryState === 'loading'">Loading tests…</p>
@@ -214,7 +214,7 @@
                 </div>
 
                 <p class="muted" x-show="libraryState === 'ready' && library.length === 0">
-                    No tests have been published yet.
+                    No practice tests have been published yet.
                 </p>
 
                 <div class="test-list" x-show="library.length > 0">
@@ -228,7 +228,7 @@
             </div>
         </section>
 
-        <!-- ========== PUBLISHED TEST HEADER (loading / error) ========== -->
+        <!-- ========== PRACTICE TEST HEADER (loading / error) ========== -->
         <section class="page" x-show="route === 'test'">
             <div class="card">
                 <a class="back-link" href="#/library">← All tests</a>
@@ -241,7 +241,7 @@
             </div>
         </section>
 
-        <!-- ========== MCQ (paste page + published tests) ========== -->
+        <!-- ========== MCQ (paste page + practice tests) ========== -->
         <section class="page" x-show="showType('mcq')">
             <div class="card" x-show="route === 'mcq'">
                 <h2>📝 MCQ Quiz</h2>
@@ -296,7 +296,7 @@
             </div>
         </section>
 
-        <!-- ========== FLASHCARDS (paste page + published tests) ========== -->
+        <!-- ========== FLASHCARDS (paste page + practice tests) ========== -->
         <section class="page" x-show="showType('flashcards')">
             <div class="card" x-show="route === 'flashcards'">
                 <h2>🃏 Flashcards</h2>
@@ -338,7 +338,7 @@
             </div>
         </section>
 
-        <!-- ========== SHORT Q&A (paste page + published tests) ========== -->
+        <!-- ========== SHORT Q&A (paste page + practice tests) ========== -->
         <section class="page" x-show="showType('qa')">
             <div class="card" x-show="route === 'qa'">
                 <h2>✍️ Short Q&amp;A</h2>

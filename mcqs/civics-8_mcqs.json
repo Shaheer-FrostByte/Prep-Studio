@@ -1,0 +1,52 @@
+[
+  {
+    "question": "According to Emory S. Bogardus, a community is a social group with some degree of:",
+    "options": ["Rivalry", "Wealth", "'We' feeling", "Isolation"],
+    "answer": "'We' feeling"
+  },
+  {
+    "question": "William F. Ogburn and Meyer F. Nimkoff define community as:",
+    "options": ["A group with no fixed area", "The total organisation of social life within a limited area", "A group of strangers", "A political party"],
+    "answer": "The total organisation of social life within a limited area"
+  },
+  {
+    "question": "Community development is the process of improving the:",
+    "options": ["Social, cultural, economic, and living conditions of people", "Size of the army", "Tax rates", "Number of political parties"],
+    "answer": "Social, cultural, economic, and living conditions of people"
+  },
+  {
+    "question": "Community development is achieved through:",
+    "options": ["Force and control", "Active participation and cooperation", "Isolation", "Foreign rule"],
+    "answer": "Active participation and cooperation"
+  },
+  {
+    "question": "How many processes of community engagement are listed in your notes?",
+    "options": ["2", "3", "4", "5"],
+    "answer": "4"
+  },
+  {
+    "question": "Which list contains the processes of community engagement?",
+    "options": ["Participation, dialogue, negotiation, partnership", "Competition, conflict, control, command", "Taxation, voting, education, health", "Participation, rivalry, isolation, partnership"],
+    "answer": "Participation, dialogue, negotiation, partnership"
+  },
+  {
+    "question": "Dialogue in community engagement takes place between:",
+    "options": ["Two countries", "Government and people", "Two armies", "Two companies"],
+    "answer": "Government and people"
+  },
+  {
+    "question": "Partnership in community engagement is between governmental organisations, people, and:",
+    "options": ["NGOs and other organisations", "Only foreign countries", "Only the army", "Only courts"],
+    "answer": "NGOs and other organisations"
+  },
+  {
+    "question": "A community-based organisation (CBO) is a:",
+    "options": ["Foreign army", "Large multinational company", "Locally run, non-profit, member-driven group serving a specific community", "Government ministry"],
+    "answer": "Locally run, non-profit, member-driven group serving a specific community"
+  },
+  {
+    "question": "A village water project is an example of:",
+    "options": ["Dictatorship", "Community development", "Social isolation", "Foreign trade"],
+    "answer": "Community development"
+  }
+]

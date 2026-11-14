@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Social change is a change in the:",
+    "options": ["Weather patterns", "Institutions of society", "Size of a country", "Names of cities"],
+    "answer": "Institutions of society"
+  },
+  {
+    "question": "Technology means:",
+    "options": ["Anything that can be used for the benefit of humankind", "Only computers", "Only machines in factories", "Only mobile phones"],
+    "answer": "Anything that can be used for the benefit of humankind"
+  },
+  {
+    "question": "Which of the following is a cause of social change?",
+    "options": ["Stagnation", "Technology", "Isolation from new ideas", "Fixed tradition"],
+    "answer": "Technology"
+  },
+  {
+    "question": "The parts of modern society are:",
+    "options": ["Technology, organisation, globalisation", "Family, religion, tradition", "Farming, fishing, hunting", "Kings, chiefs, elders"],
+    "answer": "Technology, organisation, globalisation"
+  },
+  {
+    "question": "The three elements of modern society are:",
+    "options": ["Monarchy, liberty, tradition", "Democracy, liberty, equality", "Dictatorship, order, obedience", "Wealth, power, status"],
+    "answer": "Democracy, liberty, equality"
+  },
+  {
+    "question": "Democracy means government:",
+    "options": ["Of the king, by the king", "Of the army, by the army", "Of the elders, for the elders", "Of the people, for the people, by the people"],
+    "answer": "Of the people, for the people, by the people"
+  },
+  {
+    "question": "Modern society condemns superstition and believes in:",
+    "options": ["Rationalization", "Magic", "Fate only", "Blind obedience"],
+    "answer": "Rationalization"
+  },
+  {
+    "question": "Rationalization means:",
+    "options": ["Following customs without questioning", "Making decisions based on reason", "Relying on rumours", "Avoiding all change"],
+    "answer": "Making decisions based on reason"
+  },
+  {
+    "question": "Globalisation means:",
+    "options": ["Isolation of countries", "Worldwide connection of economies and cultures", "Rule by one country", "Ban on trade"],
+    "answer": "Worldwide connection of economies and cultures"
+  },
+  {
+    "question": "Which is an example of social change?",
+    "options": ["Seasons changing", "Joint family changing to nuclear family", "Day turning into night", "A river changing its course"],
+    "answer": "Joint family changing to nuclear family"
+  }
+]
