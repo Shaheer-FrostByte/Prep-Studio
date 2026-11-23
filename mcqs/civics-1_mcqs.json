@@ -1,52 +1,102 @@
 [
   {
     "question": "Civics is the study of:",
-    "options": ["Plants and animals", "Rights and duties of a citizen", "Stars and planets", "Money and banking"],
-    "answer": "Rights and duties of a citizen"
+    "options": [
+      "Plants and animals",
+      "Rights and duties of a citizen",
+      "Stars and planets",
+      "Money and banking"
+    ],
+    "answer": 1
   },
   {
     "question": "The word 'Civics' comes from the Latin word:",
-    "options": ["Politicus", "Societas", "Civicus", "Communis"],
-    "answer": "Civicus"
+    "options": [
+      "Politicus",
+      "Societas",
+      "Civicus",
+      "Communis"
+    ],
+    "answer": 2
   },
   {
     "question": "Role in society means:",
-    "options": ["Position in society", "Freedom granted by government", "Expected behaviour", "Legal punishment"],
-    "answer": "Expected behaviour"
+    "options": [
+      "Position in society",
+      "Freedom granted by government",
+      "Expected behaviour",
+      "Legal punishment"
+    ],
+    "answer": 2
   },
   {
     "question": "Rights are best described as:",
-    "options": ["What we give", "What we get", "What we pay", "What we inherit"],
-    "answer": "What we get"
+    "options": [
+      "What we give",
+      "What we get",
+      "What we pay",
+      "What we inherit"
+    ],
+    "answer": 1
   },
   {
     "question": "Duties are best described as:",
-    "options": ["Obligations and responsibilities that must be performed", "Freedoms granted by the government", "Privileges given at birth", "Gifts from society"],
-    "answer": "Obligations and responsibilities that must be performed"
+    "options": [
+      "Obligations and responsibilities that must be performed",
+      "Freedoms granted by the government",
+      "Privileges given at birth",
+      "Gifts from society"
+    ],
+    "answer": 0
   },
   {
     "question": "Which of the following is a duty of a citizen?",
-    "options": ["Right to education", "Right to employment", "Paying tax", "Right to vote"],
-    "answer": "Paying tax"
+    "options": [
+      "Right to education",
+      "Right to employment",
+      "Paying tax",
+      "Right to vote"
+    ],
+    "answer": 2
   },
   {
     "question": "Which of the following is a right?",
-    "options": ["Following the law", "Paying tax", "Obeying traffic rules", "Right to education"],
-    "answer": "Right to education"
+    "options": [
+      "Following the law",
+      "Paying tax",
+      "Obeying traffic rules",
+      "Right to education"
+    ],
+    "answer": 3
   },
   {
     "question": "A citizen is a person who has rights and duties under a government and, by birth or choice, has:",
-    "options": ["Loyalty to that government", "Freedom from all laws", "Immunity from tax", "Authority over the government"],
-    "answer": "Loyalty to that government"
+    "options": [
+      "Loyalty to that government",
+      "Freedom from all laws",
+      "Immunity from tax",
+      "Authority over the government"
+    ],
+    "answer": 0
   },
   {
     "question": "Citizenship can be acquired by:",
-    "options": ["Only by money", "Only by religion", "Birth, descent, or naturalization", "Only by birth"],
-    "answer": "Birth, descent, or naturalization"
+    "options": [
+      "Only by money",
+      "Only by religion",
+      "Birth, descent, or naturalization",
+      "Only by birth"
+    ],
+    "answer": 2
   },
   {
     "question": "Which right is usually available only to citizens and not to non-citizens?",
-    "options": ["Protection of life", "Freedom from torture", "Freedom from slavery", "Voting"],
-    "answer": "Voting"
+    "options": [
+      "Protection of life",
+      "Freedom from torture",
+      "Freedom from slavery",
+      "Voting"
+    ],
+    "answer": 3
   }
 ]

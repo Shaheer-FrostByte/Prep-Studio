@@ -3,14 +3,14 @@ function validateMcq(data) {
     if (!Array.isArray(data)) throw new Error('Data must be an array.');
     if (data.length === 0) throw new Error('The list is empty.');
     data.forEach((item, i) => {
-        if (!item.question || !item.options || !item.answer) {
+        if (!item.question || !item.options || item.answer === undefined || item.answer === null) {
             throw new Error(`Item ${i + 1} missing "question", "options", or "answer".`);
         }
         if (!Array.isArray(item.options) || item.options.length < 2) {
             throw new Error(`Item ${i + 1} "options" must be an array with at least 2 choices.`);
         }
-        if (!item.options.includes(item.answer)) {
-            throw new Error(`Item ${i + 1} "answer" must be one of the options.`);
+        if (!Number.isInteger(item.answer) || item.answer < 0 || item.answer >= item.options.length) {
+            throw new Error(`Item ${i + 1} "answer" must be the index (starting at 0) of the correct option.`);
         }
     });
     return data;
@@ -235,10 +235,10 @@ document.addEventListener('alpine:init', () => {
             window.scrollTo(0, 0);
         },
 
-        optionClass(q, i, opt) {
+        optionClass(q, i, oi) {
             if (!this.mcq.checked) return '';
-            if (opt === q.answer) return 'correct';
-            if (this.mcq.answers[i] === opt) return 'wrong';
+            if (oi === q.answer) return 'correct';
+            if (this.mcq.answers[i] === oi) return 'wrong';
             return '';
         },
 
@@ -248,10 +248,10 @@ document.addEventListener('alpine:init', () => {
 
         feedbackText(q, i) {
             const picked = this.mcq.answers[i];
-            if (picked === null || picked === undefined) return `⚠️ No answer selected. Correct answer: ${q.answer}`;
-            return picked === q.answer
-                ? `✅ Correct! (Answer: ${q.answer})`
-                : `❌ Wrong. Correct answer: ${q.answer}`;
+            const correct = q.options[q.answer];
+            if (picked === null || picked === undefined) 
+                return `⚠️ No answer selected. Correct answer: ${correct}`;
+            return picked === q.answer ? `✅ Correct! (Answer: ${correct})` : `❌ Wrong. Correct answer: ${correct}`;
         },
 
         // ============ FLASHCARDS ============

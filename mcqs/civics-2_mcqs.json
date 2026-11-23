@@ -1,52 +1,102 @@
 [
   {
     "question": "Society is the name of:",
-    "options": ["Social relationships", "Political parties", "Geographical borders", "Economic markets"],
-    "answer": "Social relationships"
+    "options": [
+      "Social relationships",
+      "Political parties",
+      "Geographical borders",
+      "Economic markets"
+    ],
+    "answer": 0
   },
   {
     "question": "According to your teacher, society is the name of social relationships according to:",
-    "options": ["Emory S. Bogardus", "William F. Ogburn", "Talcott Parsons", "Meyer F. Nimkoff"],
-    "answer": "Talcott Parsons"
+    "options": [
+      "Emory S. Bogardus",
+      "William F. Ogburn",
+      "Talcott Parsons",
+      "Meyer F. Nimkoff"
+    ],
+    "answer": 2
   },
   {
     "question": "Talcott Parsons was born in:",
-    "options": ["London, UK", "Colorado Springs, USA", "Paris, France", "Karachi, Pakistan"],
-    "answer": "Colorado Springs, USA"
+    "options": [
+      "London, UK",
+      "Colorado Springs, USA",
+      "Paris, France",
+      "Karachi, Pakistan"
+    ],
+    "answer": 1
   },
   {
     "question": "The most primitive social organisation is:",
-    "options": ["Economy", "School", "Politics", "Family"],
-    "answer": "Family"
+    "options": [
+      "Economy",
+      "School",
+      "Politics",
+      "Family"
+    ],
+    "answer": 3
   },
   {
     "question": "How many social institutions are represented in Talcott Parsons' star?",
-    "options": ["3", "4", "5", "7"],
-    "answer": "5"
+    "options": [
+      "3",
+      "4",
+      "5",
+      "7"
+    ],
+    "answer": 2
   },
   {
     "question": "Which of the following is NOT one of the five social institutions?",
-    "options": ["Religion", "Education", "Economy", "Military"],
-    "answer": "Military"
+    "options": [
+      "Religion",
+      "Education",
+      "Economy",
+      "Military"
+    ],
+    "answer": 3
   },
   {
     "question": "Which social institution provides livelihood?",
-    "options": ["Religion", "Economy", "Family", "Education"],
-    "answer": "Economy"
+    "options": [
+      "Religion",
+      "Economy",
+      "Family",
+      "Education"
+    ],
+    "answer": 1
   },
   {
     "question": "Society is heterogeneous, which means it contains:",
-    "options": ["Only one culture", "Many different cultures", "No culture at all", "A different culture for every single person"],
-    "answer": "Many different cultures"
+    "options": [
+      "Only one culture",
+      "Many different cultures",
+      "No culture at all",
+      "A different culture for every single person"
+    ],
+    "answer": 1
   },
   {
     "question": "Social relationships are based on:",
-    "options": ["Wealth and land", "Role and status", "Age and height", "Language only"],
-    "answer": "Role and status"
+    "options": [
+      "Wealth and land",
+      "Role and status",
+      "Age and height",
+      "Language only"
+    ],
+    "answer": 1
   },
   {
     "question": "Pakistan has which type of economy?",
-    "options": ["Mixed economy", "Pure capitalist economy", "Pure socialist economy", "Barter economy"],
-    "answer": "Mixed economy"
+    "options": [
+      "Mixed economy",
+      "Pure capitalist economy",
+      "Pure socialist economy",
+      "Barter economy"
+    ],
+    "answer": 0
   }
 ]

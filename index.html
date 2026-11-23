@@ -110,7 +110,7 @@
   {
     "question": "...",
     "options": ["A", "B", "C", "D"],
-    "answer": "A"
+    "answer": 0 where "answer" is the index (starting at 0) of the correct option
   }
 ]</pre>
                     </div>
@@ -178,7 +178,7 @@
                             <span>MCQ prompt</span>
                             <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
                         </div>
-                        <pre class="wrap" x-ref="code">Generate 10 MCQs about [topic] in JSON: [{"question":"...","options":["..."],"answer":"..."}]</pre>
+                        <pre class="wrap" x-ref="code">Generate 10 MCQs about [topic] in JSON: [{"question":"...","options":["..."],"answer":0}] where "answer" is the index (starting at 0) of the correct option</pre>
                     </div>
 
                     <div class="code-block" x-data="{ copied: false }">
@@ -252,7 +252,7 @@
   {
     "question": "...",
     "options": ["A", "B", "C", "D"],
-    "answer": "A"
+    "answer": 0 where "answer" is the index (starting at 0) of the correct option
   }
 ]</pre>
                 </div>
@@ -270,8 +270,8 @@
                         <div class="q-text" x-text="(i + 1) + '. ' + q.question"></div>
                         <div class="options">
                             <template x-for="(opt, oi) in q.options" :key="oi">
-                                <label class="option" :class="optionClass(q, i, opt)">
-                                    <input type="radio" :name="'mcq-' + i" :value="opt" x-model="mcq.answers[i]" :disabled="mcq.checked" />
+                                <label class="option" :class="optionClass(q, i, oi)">
+                                    <input type="radio" :name="'mcq-' + i" :checked="mcq.answers[i] === oi" @change="mcq.answers[i] = oi" :disabled="mcq.checked" />
                                     <span x-text="opt"></span>
                                 </label>
                             </template>

@@ -1,52 +1,102 @@
 [
   {
     "question": "How many types of government are listed in your notes?",
-    "options": ["3", "4", "5", "6"],
-    "answer": "5"
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": 2
   },
   {
     "question": "Which list contains the five types of government?",
-    "options": ["Democracy, dictatorship, monarchy, parliamentary, presidential", "Democracy, state, nation, society, community", "Monarchy, economy, religion, family, education", "Parliamentary, civil, social, cultural, political"],
-    "answer": "Democracy, dictatorship, monarchy, parliamentary, presidential"
+    "options": [
+      "Democracy, dictatorship, monarchy, parliamentary, presidential",
+      "Democracy, state, nation, society, community",
+      "Monarchy, economy, religion, family, education",
+      "Parliamentary, civil, social, cultural, political"
+    ],
+    "answer": 0
   },
   {
     "question": "In which type of government does one person or group hold absolute power?",
-    "options": ["Democracy", "Dictatorship", "Parliamentary", "Presidential"],
-    "answer": "Dictatorship"
+    "options": [
+      "Democracy",
+      "Dictatorship",
+      "Parliamentary",
+      "Presidential"
+    ],
+    "answer": 1
   },
   {
     "question": "In a monarchy, power is held by a:",
-    "options": ["Hereditary king or queen", "Elected president", "Prime minister", "Group of citizens"],
-    "answer": "Hereditary king or queen"
+    "options": [
+      "Hereditary king or queen",
+      "Elected president",
+      "Prime minister",
+      "Group of citizens"
+    ],
+    "answer": 0
   },
   {
     "question": "Pakistan has which form of government?",
-    "options": ["Presidential", "Absolute monarchy", "Dictatorship", "Parliamentary"],
-    "answer": "Parliamentary"
+    "options": [
+      "Presidential",
+      "Absolute monarchy",
+      "Dictatorship",
+      "Parliamentary"
+    ],
+    "answer": 3
   },
   {
     "question": "Which country is an example of a presidential system?",
-    "options": ["Pakistan", "UK", "USA", "Saudi Arabia"],
-    "answer": "USA"
+    "options": [
+      "Pakistan",
+      "UK",
+      "USA",
+      "Saudi Arabia"
+    ],
+    "answer": 2
   },
   {
     "question": "How many functions of government are listed in your notes?",
-    "options": ["4", "5", "6", "8"],
-    "answer": "6"
+    "options": [
+      "4",
+      "5",
+      "6",
+      "8"
+    ],
+    "answer": 2
   },
   {
     "question": "Which of the following is NOT one of the six functions of government?",
-    "options": ["Economic", "Entertainment", "Health", "Education"],
-    "answer": "Entertainment"
+    "options": [
+      "Economic",
+      "Entertainment",
+      "Health",
+      "Education"
+    ],
+    "answer": 1
   },
   {
     "question": "Pollution control is part of which government function?",
-    "options": ["Cultural", "Political", "Environment", "Economic"],
-    "answer": "Environment"
+    "options": [
+      "Cultural",
+      "Political",
+      "Environment",
+      "Economic"
+    ],
+    "answer": 2
   },
   {
     "question": "Preserving heritage and language is part of which government function?",
-    "options": ["Cultural", "Economic", "Health", "Political"],
-    "answer": "Cultural"
+    "options": [
+      "Cultural",
+      "Economic",
+      "Health",
+      "Political"
+    ],
+    "answer": 0
   }
 ]

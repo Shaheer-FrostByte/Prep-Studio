@@ -1,52 +1,102 @@
 [
   {
     "question": "Civil society is a collection of organisations and groups that work together:",
-    "options": ["Inside the army", "Outside government to address issues of shared interest", "Only for profit", "Only during elections"],
-    "answer": "Outside government to address issues of shared interest"
+    "options": [
+      "Inside the army",
+      "Outside government to address issues of shared interest",
+      "Only for profit",
+      "Only during elections"
+    ],
+    "answer": 1
   },
   {
     "question": "Which of the following is an example of civil society?",
-    "options": ["Parliament", "Police department", "NGOs", "Army"],
-    "answer": "NGOs"
+    "options": [
+      "Parliament",
+      "Police department",
+      "NGOs",
+      "Army"
+    ],
+    "answer": 2
   },
   {
     "question": "Civil society acts as a ______ on government.",
-    "options": ["Owner", "Watchdog", "Employer", "Judge"],
-    "answer": "Watchdog"
+    "options": [
+      "Owner",
+      "Watchdog",
+      "Employer",
+      "Judge"
+    ],
+    "answer": 1
   },
   {
     "question": "In the word 'community', 'munis' means:",
-    "options": ["Together", "Engagement", "To serve", "To rule"],
-    "answer": "To serve"
+    "options": [
+      "Together",
+      "Engagement",
+      "To serve",
+      "To rule"
+    ],
+    "answer": 2
   },
   {
     "question": "According to your teacher, a community is a group of people living in a contiguous geographical area with:",
-    "options": ["A common centre of interest and similar activities", "Different cultures and no shared interests", "No fixed locality", "A single ruler"],
-    "answer": "A common centre of interest and similar activities"
+    "options": [
+      "A common centre of interest and similar activities",
+      "Different cultures and no shared interests",
+      "No fixed locality",
+      "A single ruler"
+    ],
+    "answer": 0
   },
   {
     "question": "A community is:",
-    "options": ["Homogeneous", "Heterogeneous", "Abstract", "Without a locality"],
-    "answer": "Homogeneous"
+    "options": [
+      "Homogeneous",
+      "Heterogeneous",
+      "Abstract",
+      "Without a locality"
+    ],
+    "answer": 0
   },
   {
     "question": "How many characteristics of community are listed in your notes?",
-    "options": ["4", "5", "6", "7"],
-    "answer": "7"
+    "options": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "answer": 3
   },
   {
     "question": "Which of the following is NOT a characteristic of community?",
-    "options": ["Locality", "Common culture", "Heterogeneity", "Spontaneous growth"],
-    "answer": "Heterogeneity"
+    "options": [
+      "Locality",
+      "Common culture",
+      "Heterogeneity",
+      "Spontaneous growth"
+    ],
+    "answer": 2
   },
   {
     "question": "Community sentiments include:",
-    "options": ["Role feeling, we feeling, sense of dependency", "Fear, anger, hatred", "Competition, rivalry, conflict", "Isolation, silence, distance"],
-    "answer": "Role feeling, we feeling, sense of dependency"
+    "options": [
+      "Role feeling, we feeling, sense of dependency",
+      "Fear, anger, hatred",
+      "Competition, rivalry, conflict",
+      "Isolation, silence, distance"
+    ],
+    "answer": 0
   },
   {
     "question": "Compared with a community, society is:",
-    "options": ["Smaller with a fixed locality", "Homogeneous", "Larger and heterogeneous, with no fixed boundary", "Always rural"],
-    "answer": "Larger and heterogeneous, with no fixed boundary"
+    "options": [
+      "Smaller with a fixed locality",
+      "Homogeneous",
+      "Larger and heterogeneous, with no fixed boundary",
+      "Always rural"
+    ],
+    "answer": 2
   }
 ]
