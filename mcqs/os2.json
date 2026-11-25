@@ -1,0 +1,87 @@
+[
+  {
+    "question": "A state is:",
+    "options": ["A group sharing one culture", "A temporary ruling party", "An organised political community in a defined territory under a sovereign government", "A group of NGOs"],
+    "answer": 3
+  },
+  {
+    "question": "How many elements does a state have?",
+    "options": ["2", "3", "4", "6"],
+    "answer": 3
+  },
+  {
+    "question": "Which of the following is NOT an element of the state?",
+    "options": ["Population", "Territory", "Religion", "Sovereignty"],
+    "answer": 3
+  },
+  {
+    "question": "Which of these is permanent?",
+    "options": ["Government", "State", "A political party", "A ministry"],
+    "answer": 2
+  },
+  {
+    "question": "The government is the ______ of the state.",
+    "options": ["Population", "Territory", "Sovereignty", "Machinery"],
+    "answer": 4
+  },
+  {
+    "question": "A nation is a group of people with:",
+    "options": ["A common army", "A common identity", "A common government only", "A common border only"],
+    "answer": 2
+  },
+  {
+    "question": "The state formulates:",
+    "options": ["Weather", "Religions", "Policies, rules, and laws", "Languages"],
+    "answer": 3
+  },
+  {
+    "question": "Security provided by the state protects:",
+    "options": ["Only the government", "Only the rich", "Institutions and people's rights and lives", "Only the army"],
+    "answer": 3
+  },
+  {
+    "question": "Which of these are daily needs the state must fulfil?",
+    "options": ["Luxury cars", "Water, food, and roads", "Foreign trips", "Jewellery"],
+    "answer": 2
+  },
+  {
+    "question": "Promotion of national unity covers:",
+    "options": ["Cooperation, integration, and harmony", "Competition and division", "Isolation and conflict", "Class separation"],
+    "answer": 1
+  },
+  {
+    "question": "How many types of government are listed in your notes?",
+    "options": ["3", "4", "5", "6"],
+    "answer": 3
+  },
+  {
+    "question": "In which type of government does one person or group hold absolute power?",
+    "options": ["Democracy", "Parliamentary", "Presidential", "Dictatorship"],
+    "answer": 4
+  },
+  {
+    "question": "In a monarchy, power is held by a:",
+    "options": ["Elected president", "Hereditary king or queen", "Prime minister", "Group of citizens"],
+    "answer": 2
+  },
+  {
+    "question": "Pakistan has which form of government?",
+    "options": ["Presidential", "Parliamentary", "Dictatorship", "Absolute monarchy"],
+    "answer": 2
+  },
+  {
+    "question": "Which country is an example of a presidential system?",
+    "options": ["Pakistan", "UK", "Saudi Arabia", "USA"],
+    "answer": 4
+  },
+  {
+    "question": "Which of the following is NOT one of the six functions of government?",
+    "options": ["Economic", "Health", "Entertainment", "Education"],
+    "answer": 3
+  },
+  {
+    "question": "Pollution control falls under which government function?",
+    "options": ["Cultural", "Political", "Economic", "Environment"],
+    "answer": 4
+  }
+]

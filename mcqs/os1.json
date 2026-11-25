@@ -1,0 +1,87 @@
+[
+  {
+    "question": "Civics is the study of:",
+    "options": ["Rights and duties of a citizen", "Plants and animals", "Stars and planets", "Money and banking"],
+    "answer": 1
+  },
+  {
+    "question": "The word 'Civics' comes from the Latin word:",
+    "options": ["Politicus", "Civicus", "Societas", "Communis"],
+    "answer": 2
+  },
+  {
+    "question": "Role in society means:",
+    "options": ["Position in society", "Freedom granted by government", "Expected behaviour", "Legal punishment"],
+    "answer": 3
+  },
+  {
+    "question": "Rights are what we ______, and duties are what we ______.",
+    "options": ["give, get", "pay, owe", "get, give", "take, keep"],
+    "answer": 3
+  },
+  {
+    "question": "Which of the following is a duty of a citizen?",
+    "options": ["Right to education", "Paying tax", "Right to employment", "Right to vote"],
+    "answer": 2
+  },
+  {
+    "question": "Citizenship can be acquired by:",
+    "options": ["Only by birth", "Only by money", "Only by religion", "Birth, descent, or naturalization"],
+    "answer": 4
+  },
+  {
+    "question": "According to Talcott Parsons (per your teacher), society is the name of:",
+    "options": ["Political parties", "Social relationships", "Geographical borders", "Economic markets"],
+    "answer": 2
+  },
+  {
+    "question": "The most primitive social organisation is:",
+    "options": ["Economy", "School", "Family", "Politics"],
+    "answer": 3
+  },
+  {
+    "question": "How many social institutions are in Talcott Parsons' star?",
+    "options": ["3", "5", "4", "7"],
+    "answer": 2
+  },
+  {
+    "question": "Which of the following is NOT one of the five social institutions?",
+    "options": ["Religion", "Military", "Education", "Economy"],
+    "answer": 2
+  },
+  {
+    "question": "Society is heterogeneous, which means it contains:",
+    "options": ["Only one culture", "No culture at all", "Many different cultures", "A different culture for every single person"],
+    "answer": 3
+  },
+  {
+    "question": "Pakistan has which type of economy?",
+    "options": ["Pure capitalist", "Pure socialist", "Barter", "Mixed"],
+    "answer": 4
+  },
+  {
+    "question": "Social change is a change in the:",
+    "options": ["Weather patterns", "Size of a country", "Institutions of society", "Names of cities"],
+    "answer": 3
+  },
+  {
+    "question": "The three elements of modern society are:",
+    "options": ["Democracy, liberty, equality", "Monarchy, liberty, tradition", "Dictatorship, order, obedience", "Wealth, power, status"],
+    "answer": 1
+  },
+  {
+    "question": "Modern society condemns superstition and believes in:",
+    "options": ["Magic", "Fate only", "Blind obedience", "Rationalization"],
+    "answer": 4
+  },
+  {
+    "question": "In a modern society, laws are applied:",
+    "options": ["Only to the poor", "Equally to all citizens", "Only to non-citizens", "Only to the rich"],
+    "answer": 2
+  },
+  {
+    "question": "Which of the following is an ascribed status?",
+    "options": ["Doctor", "Caste", "Engineer", "Political leader"],
+    "answer": 2
+  }
+]
