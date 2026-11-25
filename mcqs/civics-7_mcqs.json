@@ -7,7 +7,7 @@
       "Only for profit",
       "Only during elections"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "Which of the following is an example of civil society?",
@@ -17,7 +17,7 @@
       "NGOs",
       "Army"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Civil society acts as a ______ on government.",
@@ -27,7 +27,7 @@
       "Employer",
       "Judge"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "In the word 'community', 'munis' means:",
@@ -37,7 +37,7 @@
       "To serve",
       "To rule"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "According to your teacher, a community is a group of people living in a contiguous geographical area with:",
@@ -47,7 +47,7 @@
       "No fixed locality",
       "A single ruler"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "A community is:",
@@ -57,7 +57,7 @@
       "Abstract",
       "Without a locality"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "How many characteristics of community are listed in your notes?",
@@ -67,7 +67,7 @@
       "6",
       "7"
     ],
-    "answer": 3
+    "answer": 4
   },
   {
     "question": "Which of the following is NOT a characteristic of community?",
@@ -77,7 +77,7 @@
       "Heterogeneity",
       "Spontaneous growth"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Community sentiments include:",
@@ -87,7 +87,7 @@
       "Competition, rivalry, conflict",
       "Isolation, silence, distance"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "Compared with a community, society is:",
@@ -97,6 +97,6 @@
       "Larger and heterogeneous, with no fixed boundary",
       "Always rural"
     ],
-    "answer": 2
+    "answer": 3
   }
 ]

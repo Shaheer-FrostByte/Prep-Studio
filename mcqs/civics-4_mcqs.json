@@ -7,7 +7,7 @@
       "Equally to all citizens",
       "Only to non-citizens"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Justice, equality, and freedom are given to all citizens regardless of:",
@@ -17,7 +17,7 @@
       "Their obedience to the law",
       "Their age only"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "Strategies of check and balance are present in:",
@@ -27,7 +27,7 @@
       "Only the courts",
       "All institutions such as education, economy, and religion"
     ],
-    "answer": 3
+    "answer": 4
   },
   {
     "question": "A modern society establishes a stable economic system and:",
@@ -37,7 +37,7 @@
       "Fixed social classes",
       "Tax-free zones for all"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "All citizens of a modern society are considered part of the:",
@@ -47,7 +47,7 @@
       "Army",
       "Government only"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "Ascribed status is gained by:",
@@ -57,7 +57,7 @@
       "Education",
       "Profession"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "Achieved status is gained by:",
@@ -67,7 +67,7 @@
       "Family name",
       "Caste"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "Which of the following is an ascribed status?",
@@ -77,7 +77,7 @@
       "Caste",
       "Political leader"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Which of the following is an achieved status?",
@@ -87,7 +87,7 @@
       "Family",
       "Caste"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "One of the first functions of a modern society towards its citizens is to:",
@@ -97,6 +97,6 @@
       "Divide them by class",
       "Remove public infrastructure"
     ],
-    "answer": 0
+    "answer": 1
   }
 ]

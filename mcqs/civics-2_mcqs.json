@@ -7,7 +7,7 @@
       "Geographical borders",
       "Economic markets"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "According to your teacher, society is the name of social relationships according to:",
@@ -17,7 +17,7 @@
       "Talcott Parsons",
       "Meyer F. Nimkoff"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Talcott Parsons was born in:",
@@ -27,7 +27,7 @@
       "Paris, France",
       "Karachi, Pakistan"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "The most primitive social organisation is:",
@@ -37,7 +37,7 @@
       "Politics",
       "Family"
     ],
-    "answer": 3
+    "answer": 4
   },
   {
     "question": "How many social institutions are represented in Talcott Parsons' star?",
@@ -47,7 +47,7 @@
       "5",
       "7"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Which of the following is NOT one of the five social institutions?",
@@ -57,7 +57,7 @@
       "Economy",
       "Military"
     ],
-    "answer": 3
+    "answer": 4
   },
   {
     "question": "Which social institution provides livelihood?",
@@ -67,7 +67,7 @@
       "Family",
       "Education"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "Society is heterogeneous, which means it contains:",
@@ -77,7 +77,7 @@
       "No culture at all",
       "A different culture for every single person"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "Social relationships are based on:",
@@ -87,7 +87,7 @@
       "Age and height",
       "Language only"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "Pakistan has which type of economy?",
@@ -97,6 +97,6 @@
       "Pure socialist economy",
       "Barter economy"
     ],
-    "answer": 0
+    "answer": 1
   }
 ]

@@ -7,7 +7,7 @@
       "Size of a country",
       "Names of cities"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "Technology means:",
@@ -17,7 +17,7 @@
       "Only machines in factories",
       "Only mobile phones"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "Which of the following is a cause of social change?",
@@ -27,7 +27,7 @@
       "Isolation from new ideas",
       "Fixed tradition"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "The parts of modern society are:",
@@ -37,7 +37,7 @@
       "Farming, fishing, hunting",
       "Kings, chiefs, elders"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "The three elements of modern society are:",
@@ -47,7 +47,7 @@
       "Dictatorship, order, obedience",
       "Wealth, power, status"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "Democracy means government:",
@@ -57,7 +57,7 @@
       "Of the elders, for the elders",
       "Of the people, for the people, by the people"
     ],
-    "answer": 3
+    "answer": 4
   },
   {
     "question": "Modern society condemns superstition and believes in:",
@@ -67,7 +67,7 @@
       "Fate only",
       "Blind obedience"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "Rationalization means:",
@@ -77,7 +77,7 @@
       "Relying on rumours",
       "Avoiding all change"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "Globalisation means:",
@@ -87,7 +87,7 @@
       "Rule by one country",
       "Ban on trade"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "Which is an example of social change?",
@@ -97,6 +97,6 @@
       "Day turning into night",
       "A river changing its course"
     ],
-    "answer": 1
+    "answer": 2
   }
 ]

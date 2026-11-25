@@ -1,4 +1,4 @@
-// ============ VALIDATION (shared by pasted JSON and published tests) ============
+// ============ VALIDATION (shared by pasted JSON and practice tests) ============
 function validateMcq(data) {
     if (!Array.isArray(data)) throw new Error('Data must be an array.');
     if (data.length === 0) throw new Error('The list is empty.');
@@ -9,8 +9,9 @@ function validateMcq(data) {
         if (!Array.isArray(item.options) || item.options.length < 2) {
             throw new Error(`Item ${i + 1} "options" must be an array with at least 2 choices.`);
         }
-        if (!Number.isInteger(item.answer) || item.answer < 0 || item.answer >= item.options.length) {
-            throw new Error(`Item ${i + 1} "answer" must be the index (starting at 0) of the correct option.`);
+        // "answer" is 1-based: 1 = first option, 2 = second option, ...
+        if (!Number.isInteger(item.answer) || item.answer < 1 || item.answer > item.options.length) {
+            throw new Error(`Item ${i + 1} "answer" must be the number (starting at 1) of the correct option.`);
         }
     });
     return data;
@@ -34,6 +35,10 @@ function validateQa(data) {
         if (!item.question) {
             throw new Error(`Item ${i + 1} missing "question".`);
         }
+        // "ai_answer" is optional, but if present it must be a non-empty string
+        if (item.ai_answer !== undefined && (typeof item.ai_answer !== 'string' || !item.ai_answer.trim())) {
+            throw new Error(`Item ${i + 1} "ai_answer" must be a non-empty string.`);
+        }
     });
     return data;
 }
@@ -44,7 +49,7 @@ const QA_INSTRUCTION = "Review the user's answers. Mark each as correct/incorrec
 
 function serverHint() {
     return location.protocol === 'file:'
-        ? ' Published tests need the site to be served over http(s), not opened by double-clicking the file.'
+        ? ' Practice tests need the site to be served over http(s), not opened by double-clicking the file.'
         : '';
 }
 
@@ -58,13 +63,13 @@ document.addEventListener('alpine:init', () => {
         testFile: null,
         menuOpen: false,
 
-        // library of published tests
+        // library of practice tests
         library: [],
         libraryState: 'loading', // loading | ready | error
         libraryError: '',
         _loadToken: 0,
 
-        // currently opened published test
+        // currently opened practice test
         test: { title: '', type: null, state: 'idle', error: '' },
 
         // MCQ
@@ -119,7 +124,7 @@ document.addEventListener('alpine:init', () => {
             const pages = ['home', 'mcq', 'flashcards', 'qa', 'library'];
             this.route = pages.includes(page) ? page : 'home';
 
-            // switching back to a paste page: clear anything left over from a published test
+            // switching back to a paste page: clear anything left over from a practice test
             if (this.route === 'mcq' && this.mcq.source !== 'paste') this.clearMcq();
             if (this.route === 'flashcards' && this.fc.source !== 'paste') this.clearFlashcards();
             if (this.route === 'qa' && this.qa.source !== 'paste') this.clearQa();
@@ -138,7 +143,7 @@ document.addEventListener('alpine:init', () => {
             return this.route === type || (this.route === 'test' && this.test.type === type);
         },
 
-        // ---------- published tests ----------
+        // ---------- practice tests ----------
         async openTest(file) {
             const token = ++this._loadToken;
             this.test = { title: '', type: null, state: 'loading', error: '' };
@@ -153,7 +158,7 @@ document.addEventListener('alpine:init', () => {
                     title: 'Test not found', type: null, state: 'error',
                     error: this.libraryState === 'error'
                         ? this.libraryError
-                        : 'This test is not in the published list.'
+                        : 'This test is not in the practice test list.'
                 };
                 return;
             }
@@ -219,10 +224,16 @@ document.addEventListener('alpine:init', () => {
             }
         },
 
+        // "answer" in the JSON is 1-based, but the radio buttons use 0-based positions.
+        // This converts the JSON answer to the 0-based position of the correct option.
+        correctIndex(q) {
+            return q.answer - 1;
+        },
+
         checkMcq() {
             let score = 0;
             this.mcq.questions.forEach((q, i) => {
-                if (this.mcq.answers[i] === q.answer) score++;
+                if (this.mcq.answers[i] === this.correctIndex(q)) score++;
             });
             this.mcq.score = score;
             this.mcq.checked = true;
@@ -237,21 +248,21 @@ document.addEventListener('alpine:init', () => {
 
         optionClass(q, i, oi) {
             if (!this.mcq.checked) return '';
-            if (oi === q.answer) return 'correct';
+            if (oi === this.correctIndex(q)) return 'correct';
             if (this.mcq.answers[i] === oi) return 'wrong';
             return '';
         },
 
         feedbackClass(q, i) {
-            return this.mcq.answers[i] === q.answer ? 'result-correct' : 'result-wrong';
+            return this.mcq.answers[i] === this.correctIndex(q) ? 'result-correct' : 'result-wrong';
         },
 
         feedbackText(q, i) {
             const picked = this.mcq.answers[i];
-            const correct = q.options[q.answer];
+            const correct = q.options[this.correctIndex(q)];
             if (picked === null || picked === undefined) 
                 return `⚠️ No answer selected. Correct answer: ${correct}`;
-            return picked === q.answer ? `✅ Correct! (Answer: ${correct})` : `❌ Wrong. Correct answer: ${correct}`;
+            return picked === this.correctIndex(q) ? `✅ Correct! (Answer: ${correct})` : `❌ Wrong. Correct answer: ${correct}`;
         },
 
         // ============ FLASHCARDS ============
@@ -316,6 +327,11 @@ document.addEventListener('alpine:init', () => {
             }
         },
 
+        // true if at least one question has an AI generated answer to show
+        get qaHasAiAnswers() {
+            return this.qa.questions.some(q => q.ai_answer);
+        },
+
         finishQa() {
             const qaPairs = this.qa.questions.map((q, i) => ({
                 question: q.question,
@@ -328,7 +344,7 @@ document.addEventListener('alpine:init', () => {
 
         resetQa() {
             if (this.route === 'test') {
-                // published test: restart from the first question
+                // practice test: restart from the first question
                 this.loadQa(this.qa.questions, this.qa.source);
             } else {
                 this.clearQa();

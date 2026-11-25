@@ -110,9 +110,10 @@
   {
     "question": "...",
     "options": ["A", "B", "C", "D"],
-    "answer": 0 where "answer" is the index (starting at 0) of the correct option
+    "answer": 1
   }
 ]</pre>
+<div class="code-note"><code>answer</code> is the number of the correct option, starting at 1 (1 = first option).</div>
                     </div>
 
                     <div class="code-block" x-data="{ copied: false }">
@@ -135,9 +136,11 @@
                         </div>
                         <pre x-ref="code">[
   {
-    "question": "What is ...?"
+    "question": "What is ...?",
+    "ai_answer": "A short, clear answer (optional)"
   }
 ]</pre>
+<div class="code-note"><code>ai_answer</code> is optional. If included, it is shown next to the user's answer after finishing.</div>
                     </div>
                 </div>
             </div>
@@ -149,6 +152,7 @@
                     <li><strong>Paste</strong> the JSON into the Short Q&amp;A page and click <em>Start</em>.</li>
                     <li><strong>Answer</strong> each question in the text box. Use <em>Previous</em> and <em>Next</em> to move around.</li>
                     <li><strong>Finish</strong> by clicking <em>Finish &amp; Generate Output</em>.</li>
+                    <li><strong>Compare</strong> (when questions include an <code>ai_answer</code>): the user's answer and the AI generated answer are shown side by side.</li>
                     <li><strong>Copy</strong> the output (it includes a built-in instruction) and paste it straight into your AI. No extra typing needed.</li>
                 </ol>
                 <h3>Output example</h3>
@@ -178,7 +182,7 @@
                             <span>MCQ prompt</span>
                             <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
                         </div>
-                        <pre class="wrap" x-ref="code">Generate 10 MCQs about [topic] in JSON: [{"question":"...","options":["..."],"answer":0}] where "answer" is the index (starting at 0) of the correct option</pre>
+                        <pre class="wrap" x-ref="code">Generate 10 MCQs about [topic] in JSON: [{"question":"...","options":["...","..."],"answer":1}] where "answer" is the number of the correct option, starting at 1 (1 = the first option)</pre>
                     </div>
 
                     <div class="code-block" x-data="{ copied: false }">
@@ -194,7 +198,7 @@
                             <span>Short Q&amp;A prompt</span>
                             <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
                         </div>
-                        <pre class="wrap" x-ref="code">Generate 8 short questions about [topic] in JSON: [{"question":"..."}]</pre>
+                        <pre class="wrap" x-ref="code">Generate 8 short questions about [topic] in JSON: [{"question":"...","ai_answer":"a short, clear answer"}]</pre>
                     </div>
                 </div>
             </div>
@@ -252,9 +256,10 @@
   {
     "question": "...",
     "options": ["A", "B", "C", "D"],
-    "answer": 0 where "answer" is the index (starting at 0) of the correct option
+    "answer": 1
   }
 ]</pre>
+<div class="code-note"><code>answer</code> is the number of the correct option, starting at 1 (1 = first option).</div>
                 </div>
                 <label class="field-label" for="mcq-input">Your JSON</label>
                 <textarea id="mcq-input" x-model="mcq.input" placeholder="Paste your JSON here…"></textarea>
@@ -347,9 +352,11 @@
                     <div class="code-head"><span>Format</span></div>
                     <pre>[
   {
-    "question": "What is ...?"
+    "question": "What is ...?",
+    "ai_answer": "A short, clear answer (optional)"
   }
 ]</pre>
+<div class="code-note"><code>ai_answer</code> is optional. If included, it is shown next to the user's answer after finishing.</div>
                 </div>
                 <label class="field-label" for="qa-input">Your JSON</label>
                 <textarea id="qa-input" x-model="qa.input" placeholder="Paste your JSON here…"></textarea>
@@ -371,6 +378,30 @@
                     <button class="btn" x-show="qa.index < qa.questions.length - 1" @click="qa.index++">Next ▶</button>
                     <button class="btn btn-success" x-show="qa.index === qa.questions.length - 1" @click="finishQa()">🏁 Finish &amp; Generate Output</button>
                 </div>
+            </div>
+
+            <!-- Review: user's answer vs AI generated answer (only if the questions have ai_answer) -->
+            <div class="stack" x-show="qa.finished && qaHasAiAnswers">
+                <div class="card">
+                    <h2>📋 Review</h2>
+                    <p>Compare the user's answer with the AI generated answer for each question.</p>
+                </div>
+                <template x-for="(q, i) in qa.questions" :key="i">
+                    <div class="card question">
+                        <div class="q-text" x-text="(i + 1) + '. ' + q.question"></div>
+
+                        <div class="answer-box answer-user">
+                            <div class="answer-label">User's answer</div>
+                            <div class="answer-text" :class="{ 'answer-empty': !qa.answers[i].trim() }"
+                                x-text="qa.answers[i].trim() || 'No answer given'"></div>
+                        </div>
+
+                        <div class="answer-box answer-ai" x-show="q.ai_answer">
+                            <div class="answer-label">AI generated answer</div>
+                            <div class="answer-text" x-text="q.ai_answer"></div>
+                        </div>
+                    </div>
+                </template>
             </div>
 
             <div class="card" x-show="qa.finished">

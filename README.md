@@ -31,17 +31,47 @@ question-answers/     short Q&A test files
 
 3. Commit and push. The test appears in the menu.
 
-| type | folder | file format |
-|---|---|---|
-| `mcq` | `mcqs/` | `[{"question":"...","options":["A","B"],"answer":0}] where "answer" is the index (starting at 0) of the correct option` |
-| `flashcards` | `flashcards/` | `[{"front":"...","back":"..."}]` |
-| `qa` | `question-answers/` | `[{"question":"..."}]` |
+## File formats
 
-Notes:
-- `file` is the path from the project root, so it must match where the file actually is.
+**MCQ** (`type: "mcq"`, folder `mcqs/`)
+
+```json
+[
+  {
+    "question": "...",
+    "options": ["A", "B", "C", "D"],
+    "answer": 1
+  }
+]
+```
+
+`answer` is the number of the correct option, starting at 1 (1 = first option).
+
+**Flashcards** (`type: "flashcards"`, folder `flashcards/`)
+
+```json
+[
+  { "front": "Term", "back": "Definition" }
+]
+```
+
+**Short Q&A** (`type: "qa"`, folder `question-answers/`)
+
+```json
+[
+  { "question": "What is ...?", "ai_answer": "A short, clear answer" }
+]
+```
+
+`ai_answer` is optional. When questions have it, finishing the test shows a review: the user's answer (green) next to the AI generated answer (gray). Without it, the test just produces the output to paste into an AI for grading.
+
+## Notes
+
+- `file` is the path from the project root and must match where the file actually is.
 - `title` is what students see in the menu, so include the type and subject (e.g. "Flashcards - OS2").
-- For MCQs, `answer` must exactly match one of the `options`.
-- Add a comma between entries in `library.json`, and keep it valid JSON.
+- Add a comma between entries in `library.json` and keep it valid JSON.
+- Drafts: keep unfinished tests in a local-only file such as `library-drafts.json` and add that name to `.gitignore` so it is never pushed. Copy an entry into `library.json` when the test is ready.
+- Everything in the repo is public on GitHub Pages, so don't put anything private in it.
 
 ## Running locally
 

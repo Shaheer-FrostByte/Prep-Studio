@@ -7,7 +7,7 @@
       "Religious group",
       "Trade union"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "How many elements does a state have?",
@@ -17,7 +17,7 @@
       "4",
       "6"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Which of the following is NOT an element of the state?",
@@ -27,7 +27,7 @@
       "Sovereignty",
       "Religion"
     ],
-    "answer": 3
+    "answer": 4
   },
   {
     "question": "Which of these is permanent?",
@@ -37,7 +37,7 @@
       "A political party",
       "A ministry"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "The government is the ______ of the state.",
@@ -47,7 +47,7 @@
       "Machinery",
       "Sovereignty"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "A nation is a group of people with:",
@@ -57,7 +57,7 @@
       "A common government only",
       "A common border only"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "The state formulates the:",
@@ -67,7 +67,7 @@
       "Religions",
       "Languages"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "The state system should be free from:",
@@ -77,7 +77,7 @@
       "Corruption and anti-social activities",
       "Laws"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Security provided by the state protects:",
@@ -87,7 +87,7 @@
       "Only the army",
       "Institutions and people's rights and lives"
     ],
-    "answer": 3
+    "answer": 4
   },
   {
     "question": "The state must fulfil the daily needs of people such as:",
@@ -97,7 +97,7 @@
       "Foreign trips",
       "Jewellery"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "Promotion of national unity covers:",
@@ -107,6 +107,6 @@
       "Isolation and conflict",
       "Class separation"
     ],
-    "answer": 1
+    "answer": 2
   }
 ]

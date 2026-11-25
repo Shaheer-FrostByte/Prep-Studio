@@ -7,7 +7,7 @@
       "Stars and planets",
       "Money and banking"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "The word 'Civics' comes from the Latin word:",
@@ -17,7 +17,7 @@
       "Civicus",
       "Communis"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Role in society means:",
@@ -27,7 +27,7 @@
       "Expected behaviour",
       "Legal punishment"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Rights are best described as:",
@@ -37,7 +37,7 @@
       "What we pay",
       "What we inherit"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "Duties are best described as:",
@@ -47,7 +47,7 @@
       "Privileges given at birth",
       "Gifts from society"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "Which of the following is a duty of a citizen?",
@@ -57,7 +57,7 @@
       "Paying tax",
       "Right to vote"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Which of the following is a right?",
@@ -67,7 +67,7 @@
       "Obeying traffic rules",
       "Right to education"
     ],
-    "answer": 3
+    "answer": 4
   },
   {
     "question": "A citizen is a person who has rights and duties under a government and, by birth or choice, has:",
@@ -77,7 +77,7 @@
       "Immunity from tax",
       "Authority over the government"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "Citizenship can be acquired by:",
@@ -87,7 +87,7 @@
       "Birth, descent, or naturalization",
       "Only by birth"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Which right is usually available only to citizens and not to non-citizens?",
@@ -97,6 +97,6 @@
       "Freedom from slavery",
       "Voting"
     ],
-    "answer": 3
+    "answer": 4
   }
 ]

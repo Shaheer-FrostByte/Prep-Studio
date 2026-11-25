@@ -7,7 +7,7 @@
       "5",
       "6"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Which list contains the five types of government?",
@@ -17,7 +17,7 @@
       "Monarchy, economy, religion, family, education",
       "Parliamentary, civil, social, cultural, political"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "In which type of government does one person or group hold absolute power?",
@@ -27,7 +27,7 @@
       "Parliamentary",
       "Presidential"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "In a monarchy, power is held by a:",
@@ -37,7 +37,7 @@
       "Prime minister",
       "Group of citizens"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "Pakistan has which form of government?",
@@ -47,7 +47,7 @@
       "Dictatorship",
       "Parliamentary"
     ],
-    "answer": 3
+    "answer": 4
   },
   {
     "question": "Which country is an example of a presidential system?",
@@ -57,7 +57,7 @@
       "USA",
       "Saudi Arabia"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "How many functions of government are listed in your notes?",
@@ -67,7 +67,7 @@
       "6",
       "8"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Which of the following is NOT one of the six functions of government?",
@@ -77,7 +77,7 @@
       "Health",
       "Education"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "question": "Pollution control is part of which government function?",
@@ -87,7 +87,7 @@
       "Environment",
       "Economic"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "question": "Preserving heritage and language is part of which government function?",
@@ -97,6 +97,6 @@
       "Health",
       "Political"
     ],
-    "answer": 0
+    "answer": 1
   }
 ]

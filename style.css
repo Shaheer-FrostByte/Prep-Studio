@@ -788,3 +788,55 @@ textarea:focus {
     transition: none;
   }
 }
+
+/* ============ NOTES UNDER CODE BLOCKS ============ */
+.code-note {
+  padding: 0.75rem 1.25rem 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ============ Q&A REVIEW: USER'S ANSWER vs AI GENERATED ANSWER ============ */
+.answer-box {
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid;
+}
+
+.answer-label {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.answer-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* user's answer = green */
+.answer-user {
+  background: var(--success-soft);
+  border-color: #bfe3cd;
+}
+
+.answer-user .answer-label {
+  color: var(--success-dark);
+}
+
+/* AI generated answer = gray */
+.answer-ai {
+  background: #eef0f3;
+  border-color: #d3d8df;
+}
+
+.answer-ai .answer-label {
+  color: var(--muted);
+}
+
+.answer-empty {
+  color: var(--muted);
+  font-style: italic;
+}
