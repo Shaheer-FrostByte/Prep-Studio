@@ -1,0 +1,14 @@
+[
+  {
+    "question": "Scenario: An online pharmacy has a web app. A customer opens a web page, searches for a medicine and clicks 'Check Availability'. The system checks that the customer is logged in, applies the rule that prescription-only medicines need a verified prescription, reads the stock from the database, and shows the result on the page. Justify why this system is a 3-tier architecture and not a 2-tier architecture.",
+    "ai_answer": "The business logic (login check and the prescription rule) sits in a separate application tier between the browser and the database. The tiers are: presentation (web page), application (logic server) and data (database). In a 2-tier system the client would hold the logic and connect directly to the database."
+  },
+  {
+    "question": "Scenario: An online pharmacy has a web app. A customer opens a web page, searches for a medicine and clicks 'Check Availability'. The system checks the login, applies the prescription rule and reads the stock from the database. Give two reasons why the customer's browser should not connect directly to the database.",
+    "ai_answer": "1) Security: the database would be exposed, so anyone could run queries against it. The application tier hides it and is the only layer allowed to access it. 2) Business rules: the login check and prescription rule would be bypassed or have to be copied into every client, making changes hard to maintain. Scalability also suffers because each client opens its own database connection."
+  },
+  {
+    "question": "Scenario: An online pharmacy has a web app. A customer opens a web page, searches for a medicine and clicks 'Check Availability'. The system checks the login, applies the prescription rule and reads the stock from the database. Explain step by step how the three tiers communicate when the customer clicks 'Check Availability', and state each tier's role.",
+    "ai_answer": "1) Presentation tier (browser): takes the click and sends the request to the application tier. 2) Application tier: checks the login and applies the prescription rule. 3) It sends a query for the medicine's stock to the data tier. 4) Data tier (DBMS): runs the query and returns the stock data. 5) Application tier: processes the result and sends it back. 6) Presentation tier: displays the availability to the customer. Each tier talks only to the tier next to it."
+  }
+]

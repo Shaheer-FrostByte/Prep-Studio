@@ -1,5 +1,14 @@
 [
-  { "title": "OS-1 MCQs", "type": "mcq", "file": "mcqs/os1.json" },
-  { "title": "OS-2 MCQs", "type": "mcq", "file": "mcqs/os2.json" },
-  { "title": "OS-3 MCQs", "type": "mcq", "file": "mcqs/os3.json" }
+  { "title": "Civics-1 MCQs", "type": "mcq", "file": "mcqs/civics1.json" },
+  { "title": "Civics-2 MCQs", "type": "mcq", "file": "mcqs/civics2.json" },
+  { "title": "Civics-3 MCQs", "type": "mcq", "file": "mcqs/civics3.json" },
+
+  { "title": "SQL-1 MCQs", "type": "mcq", "file": "mcqs/sql1.json" },
+  { "title": "SQL-2 MCQs", "type": "mcq", "file": "mcqs/sql2.json" },
+  { "title": "SQL-3 MCQs", "type": "mcq", "file": "mcqs/sql3.json" },
+
+  { "title": "DBMS-1 Q/A", "type": "qa", "file": "question-answers/dbms1.json" },
+  { "title": "DBMS-2 Q/A", "type": "qa", "file": "question-answers/dbms2.json" },
+  { "title": "DBMS-3 Q/A", "type": "qa", "file": "question-answers/dbms3.json" }
+
 ]

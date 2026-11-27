@@ -1,0 +1,14 @@
+[
+  {
+    "question": "Scenario: A hospital stores Staff (Staff_id, Name, Salary). A staff member can be a Doctor (Specialty) or a Nurse (Ward_no), but never both. Some staff are administrators and are neither. A doctor treats many Patients (Patient_id, Name) and a patient is treated by many doctors. Each treatment records a Diagnosis. Is the specialization of Staff into Doctor and Nurse disjoint or overlapping, and total or partial? Justify your answer.",
+    "ai_answer": "It is disjoint, because a staff member is never both a Doctor and a Nurse (circle marked d). It is partial, because administrators belong to neither subclass, so the superclass connects to the circle with a single line."
+  },
+  {
+    "question": "Scenario: A hospital stores Staff (Staff_id, Name, Salary). Staff can be a Doctor (Specialty) or a Nurse (Ward_no). A doctor treats many Patients (Patient_id, Name) and a patient is treated by many doctors. Each treatment records a Diagnosis. Should the 'Treats' relationship be attached to Staff or to Doctor? Give its cardinality and the relationship attribute, and explain why.",
+    "ai_answer": "Attach it to Doctor, because only doctors treat patients. Attaching it to Staff would wrongly allow nurses and administrators to treat patients. Cardinality is M:N (Doctor–Patient). Diagnosis is a relationship attribute, since it belongs to the treatment and not to the doctor or the patient alone."
+  },
+  {
+    "question": "Scenario: A hospital stores Staff (Staff_id, Name, Salary). A staff member can be a Doctor (Specialty) or a Nurse (Ward_no), but never both. Some staff are administrators. A doctor treats many Patients (Patient_id, Name) and a patient is treated by many doctors. Each treatment records a Diagnosis. List the entities with attributes and primary keys, and describe how the EER diagram is drawn.",
+    "ai_answer": "Entities: Staff(Staff_id PK, Name, Salary); Doctor(Specialty), inheriting Staff_id; Nurse(Ward_no), inheriting Staff_id; Patient(Patient_id PK, Name). Diagram: Staff at the top with a single line to a circle marked d, then lines with the subset symbol from the circle to Doctor and Nurse. Doctor is joined to Patient through a Treats diamond labelled M and N, with Diagnosis as an ellipse on the diamond."
+  }
+]

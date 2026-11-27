@@ -1,0 +1,14 @@
+[
+  {
+    "question": "Scenario: A company stores project work in one table: ASSIGNMENT(Emp_id, Project_id, Emp_name, Project_title, Dept_id, Dept_name, Hours). The primary key is (Emp_id, Project_id). Emp_id determines Emp_name and Dept_id. Dept_id determines Dept_name. Project_id determines Project_title. Hours depends on both Emp_id and Project_id. Is the table in 2NF? Justify your answer.",
+    "ai_answer": "No. It is in 1NF (all values are atomic) but not in 2NF. Emp_name, Dept_id and Dept_name depend only on Emp_id, and Project_title depends only on Project_id. These are partial dependencies on the composite key. Only Hours depends on the whole key."
+  },
+  {
+    "question": "Scenario: ASSIGNMENT(Emp_id, Project_id, Emp_name, Project_title, Dept_id, Dept_name, Hours), primary key (Emp_id, Project_id). Emp_id determines Emp_name and Dept_id. Dept_id determines Dept_name. Project_id determines Project_title. Explain why this table suffers from an update anomaly and give one example.",
+    "ai_answer": "Dept_name is repeated in every row of every employee in that department. If a department is renamed, every one of those rows must be changed. If one row is missed, the table shows two different names for the same department, which makes the data inconsistent."
+  },
+  {
+    "question": "Scenario: ASSIGNMENT(Emp_id, Project_id, Emp_name, Project_title, Dept_id, Dept_name, Hours), primary key (Emp_id, Project_id). Emp_id determines Emp_name and Dept_id. Dept_id determines Dept_name. Project_id determines Project_title. Hours depends on both Emp_id and Project_id. Decompose the table into 3NF and state the primary and foreign keys.",
+    "ai_answer": "EMPLOYEE(Emp_id PK, Emp_name, Dept_id FK); DEPARTMENT(Dept_id PK, Dept_name); PROJECT(Project_id PK, Project_title); ASSIGNMENT(Emp_id PK/FK, Project_id PK/FK, Hours). This removes the partial dependencies (2NF) and the transitive dependency Emp_id → Dept_id → Dept_name (3NF)."
+  }
+]

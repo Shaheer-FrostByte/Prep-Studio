@@ -1,0 +1,102 @@
+[
+  {
+    "question": "A bank wants every change to the Balance column of the Accounts table recorded in an audit table automatically, no matter which application makes the change. What is the best choice?",
+    "options": [
+      "A CHECK constraint on Balance",
+      "A stored procedure that each application must remember to call",
+      "A trigger on the Accounts table",
+      "A view over the Accounts table"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "A developer needs a reusable routine that takes a price and returns the price after tax, and it must be usable directly inside a SELECT statement. Which object fits?",
+    "options": [
+      "A stored procedure with an OUTPUT parameter",
+      "A view",
+      "A trigger",
+      "A scalar user-defined function"
+    ],
+    "answer": 4
+  },
+  {
+    "question": "Table A(ID): 1, 2, NULL. Table B(ID): 2, 3, NULL.\n\nSELECT * FROM A FULL OUTER JOIN B ON A.ID = B.ID;\n\nHow many rows are returned?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Dept(DeptID): 10, 20, 30\nEmp(EmpID, DeptID): (1, 10), (2, 10), (3, 20), (4, NULL)\n\nSELECT * FROM Dept d LEFT JOIN Emp e ON d.DeptID = e.DeptID;\n\nHow many rows are returned?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "7"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Sales(Region, Amount): (East, 100), (East, NULL), (West, 200), (West, 50), (NULL, 70)\n\nSELECT Region, COUNT(Amount) FROM Sales GROUP BY Region;\n\nHow many rows does this query return?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Using the same Sales table: (East, 100), (East, NULL), (West, 200), (West, 50), (NULL, 70)\n\nSELECT Region, SUM(Amount) FROM Sales GROUP BY Region HAVING SUM(Amount) > 100;\n\nWhich rows are returned?",
+    "options": [
+      "East (100) and West (250)",
+      "West (250) and the NULL region (70)",
+      "All three groups",
+      "Only West (250)"
+    ],
+    "answer": 4
+  },
+  {
+    "question": "The Orders table has some rows where Discount is NULL. Which query displays every order, including those with a NULL Discount?",
+    "options": [
+      "SELECT * FROM Orders WHERE Discount IS NOT NULL;",
+      "SELECT * FROM Orders o1 INNER JOIN Orders o2 ON o1.Discount = o2.Discount;",
+      "SELECT * FROM Orders;",
+      "SELECT * FROM Orders WHERE Discount = NULL;"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Table P(ID): 1, 2, 3. Table Q(ID): 1, NULL.\n\nSELECT ID FROM P WHERE ID NOT IN (SELECT ID FROM Q);\n\nHow many rows are returned?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "CREATE PROCEDURE usp_Count @Dept INT, @Total INT OUTPUT\nAS\nBEGIN\n    SELECT @Total = COUNT(*) FROM Emp WHERE DeptID = @Dept;\nEND;\n\nWhich call correctly returns the count into a variable?",
+    "options": [
+      "DECLARE @n INT;\nEXEC usp_Count 10, @n OUTPUT;",
+      "EXEC usp_Count 10;",
+      "SELECT usp_Count(10);",
+      "DECLARE @n INT;\nEXEC usp_Count 10, @n;"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "The Accounts table has the constraint CHECK (Balance >= 0).\n\nUPDATE Accounts SET Balance = -50 WHERE ID = 1;\n\nWhat happens?",
+    "options": [
+      "The row is deleted",
+      "The statement fails with a constraint violation and the row is unchanged",
+      "Balance is set to -50",
+      "Balance is set to 0"
+    ],
+    "answer": 2
+  }
+]

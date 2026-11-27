@@ -1,0 +1,102 @@
+[
+  {
+    "question": "A finance office needs a monthly report where the month and year are supplied by the user each time the report is run. Which database object is the best fit?",
+    "options": [
+      "A view",
+      "A CHECK constraint",
+      "A trigger",
+      "A stored procedure with input parameters"
+    ],
+    "answer": 4
+  },
+  {
+    "question": "Which database object runs automatically when a row is inserted into a table, without anyone calling it?",
+    "options": [
+      "Trigger",
+      "Scalar function",
+      "View",
+      "Stored procedure"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Tables:\nCustomer(CustomerID, Name): (1, Ali), (2, Sara), (3, Omar)\nOrders(OrderID, CustomerID): (101, 1), (102, 1), (103, 3)\n\nSELECT c.Name, o.OrderID\nFROM Customer c LEFT JOIN Orders o ON c.CustomerID = o.CustomerID;\n\nHow many rows does this query return?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Table A has one column ID with values 1, 2, NULL. Table B has one column ID with values 1, 2, NULL.\n\nSELECT * FROM A INNER JOIN B ON A.ID = B.ID;\n\nHow many rows are returned?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Student(ID, Marks): (1, 80), (2, NULL), (3, 70), (4, NULL), (5, 90)\n\nSELECT COUNT(*), COUNT(Marks) FROM Student;\n\nWhat is the output?",
+    "options": [
+      "5 and 5",
+      "3 and 3",
+      "3 and 5",
+      "5 and 3"
+    ],
+    "answer": 4
+  },
+  {
+    "question": "Using the same Student table: (1, 80), (2, NULL), (3, 70), (4, NULL), (5, 90)\n\nSELECT AVG(Marks) FROM Student;\n\nWhat is the output?",
+    "options": [
+      "60",
+      "48",
+      "NULL",
+      "80"
+    ],
+    "answer": 4
+  },
+  {
+    "question": "The Products table has some rows where Price is NULL. You must display every row of this table, including the NULL ones. What do you need?",
+    "options": [
+      "A CROSS JOIN",
+      "A FULL OUTER JOIN",
+      "No join is needed; a simple SELECT displays all rows",
+      "A LEFT JOIN with itself"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Table X(City): Lahore, Karachi, Lahore. Table Y(City): Karachi, Multan.\n\nSELECT City FROM X\nUNION\nSELECT City FROM Y;\n\nHow many rows are returned?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "An UPDATE statement fires an AFTER UPDATE trigger. What does the 'deleted' table inside the trigger contain?",
+    "options": [
+      "The old values of the updated rows",
+      "Every row in the table",
+      "The new values of the updated rows",
+      "Nothing, it is always empty for updates"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which statement removes all rows from a table, keeps the table structure, and cannot use a WHERE clause?",
+    "options": [
+      "TRUNCATE TABLE Student;",
+      "DROP TABLE Student;",
+      "DELETE FROM Student WHERE ID > 0;",
+      "ALTER TABLE Student;"
+    ],
+    "answer": 1
+  }
+]

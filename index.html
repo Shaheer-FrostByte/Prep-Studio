@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StudyTool – Learn with AI</title>
+    <title>Prep Studio – Learn with AI</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="js/alpine.min.js"></script>
     <script src="app.js"></script>
@@ -16,7 +16,7 @@
     <header class="topbar">
         <div class="topbar-inner">
             <button class="menu-btn" @click="menuOpen = true" aria-label="Open menu">☰</button>
-            <a class="brand" href="#/home">📘 StudyTool</a>
+            <a class="brand" href="#/home">📘 Prep Studio</a>
             <nav class="topnav" aria-label="Main">
                 <a href="#/home" :class="{ active: route === 'home' }">Home</a>
                 <a href="#/mcq" :class="{ active: route === 'mcq' }">MCQ Quiz</a>
@@ -31,7 +31,7 @@
     <div class="overlay" x-show="menuOpen" x-transition.opacity @click="menuOpen = false"></div>
     <aside class="drawer" :class="{ open: menuOpen }" aria-label="Menu">
         <div class="drawer-head">
-            <span class="brand">📘 StudyTool</span>
+            <span class="brand">📘 Prep Studio</span>
             <button class="menu-close" @click="menuOpen = false" aria-label="Close menu">✕</button>
         </div>
 
@@ -54,7 +54,7 @@
         <!-- ========== HOME ========== -->
         <section class="page" x-show="route === 'home'">
             <div class="card">
-                <h1>📘 StudyTool</h1>
+                <h1>📘 Prep Studio</h1>
                 <p class="lead">Practise with AI-generated questions, and export your answers back for grading.</p>
                 <div class="actions">
                     <a class="btn" href="#/library">Take a practice test</a>
@@ -104,7 +104,9 @@
                     <div class="code-block" x-data="{ copied: false }">
                         <div class="code-head">
                             <span>MCQ</span>
-                            <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
+                            <button class="copy-btn"
+                                @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })"
+                                x-text="copied ? 'Copied ✓' : 'Copy'"></button>
                         </div>
                         <pre x-ref="code">[
   {
@@ -113,13 +115,16 @@
     "answer": 1 (1-based index)
   }
 ]</pre>
-<div class="code-note"><code>answer</code> is the number of the correct option, starting at 1 (1 = first option).</div>
+                        <div class="code-note"><code>answer</code> is the number of the correct option, starting at 1 (1
+                            = first option).</div>
                     </div>
 
                     <div class="code-block" x-data="{ copied: false }">
                         <div class="code-head">
                             <span>Flashcards</span>
-                            <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
+                            <button class="copy-btn"
+                                @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })"
+                                x-text="copied ? 'Copied ✓' : 'Copy'"></button>
                         </div>
                         <pre x-ref="code">[
   {
@@ -132,7 +137,9 @@
                     <div class="code-block" x-data="{ copied: false }">
                         <div class="code-head">
                             <span>Short Q&amp;A (input)</span>
-                            <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
+                            <button class="copy-btn"
+                                @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })"
+                                x-text="copied ? 'Copied ✓' : 'Copy'"></button>
                         </div>
                         <pre x-ref="code">[
   {
@@ -140,7 +147,8 @@
     "ai_answer": "A short, clear answer (optional)"
   }
 ]</pre>
-<div class="code-note"><code>ai_answer</code> is optional. If included, it is shown next to the user's answer after finishing.</div>
+                        <div class="code-note"><code>ai_answer</code> is optional. If included, it is shown next to the
+                            user's answer after finishing.</div>
                     </div>
                 </div>
             </div>
@@ -150,16 +158,21 @@
                 <ol class="steps">
                     <li><strong>Ask your AI</strong> for questions in the input format above.</li>
                     <li><strong>Paste</strong> the JSON into the Short Q&amp;A page and click <em>Start</em>.</li>
-                    <li><strong>Answer</strong> each question in the text box. Use <em>Previous</em> and <em>Next</em> to move around.</li>
+                    <li><strong>Answer</strong> each question in the text box. Use <em>Previous</em> and <em>Next</em>
+                        to move around.</li>
                     <li><strong>Finish</strong> by clicking <em>Finish &amp; Generate Output</em>.</li>
-                    <li><strong>Compare</strong> (when questions include an <code>ai_answer</code>): the user's answer and the AI generated answer are shown side by side.</li>
-                    <li><strong>Copy</strong> the output (it includes a built-in instruction) and paste it straight into your AI. No extra typing needed.</li>
+                    <li><strong>Compare</strong> (when questions include an <code>ai_answer</code>): the user's answer
+                        and the AI generated answer are shown side by side.</li>
+                    <li><strong>Copy</strong> the output (it includes a built-in instruction) and paste it straight into
+                        your AI. No extra typing needed.</li>
                 </ol>
                 <h3>Output example</h3>
                 <div class="code-block" x-data="{ copied: false }">
                     <div class="code-head">
                         <span>Output with instruction</span>
-                        <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
+                        <button class="copy-btn"
+                            @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })"
+                            x-text="copied ? 'Copied ✓' : 'Copy'"></button>
                     </div>
                     <pre x-ref="code">{
   "instruction": "Review the user's answers. Mark each as correct/incorrect. If incorrect, provide the correct answer or a brief explanation.",
@@ -180,25 +193,34 @@
                     <div class="code-block" x-data="{ copied: false }">
                         <div class="code-head">
                             <span>MCQ prompt</span>
-                            <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
+                            <button class="copy-btn"
+                                @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })"
+                                x-text="copied ? 'Copied ✓' : 'Copy'"></button>
                         </div>
-                        <pre class="wrap" x-ref="code">Generate 10 MCQs about [topic] in JSON: [{"question":"...","options":["...","..."],"answer":1}] where "answer" is the number of the correct option, starting at 1 (1 = the first option)</pre>
+                        <pre class="wrap"
+                            x-ref="code">Generate 10 MCQs about [topic] in JSON: [{"question":"...","options":["...","..."],"answer":1}] where "answer" is the number of the correct option, starting at 1 (1 = the first option)</pre>
                     </div>
 
                     <div class="code-block" x-data="{ copied: false }">
                         <div class="code-head">
                             <span>Flashcards prompt</span>
-                            <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
+                            <button class="copy-btn"
+                                @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })"
+                                x-text="copied ? 'Copied ✓' : 'Copy'"></button>
                         </div>
-                        <pre class="wrap" x-ref="code">Generate 15 flashcards about [topic] in JSON: [{"front":"...","back":"..."}]</pre>
+                        <pre class="wrap"
+                            x-ref="code">Generate 15 flashcards about [topic] in JSON: [{"front":"...","back":"..."}]</pre>
                     </div>
 
                     <div class="code-block" x-data="{ copied: false }">
                         <div class="code-head">
                             <span>Short Q&amp;A prompt</span>
-                            <button class="copy-btn" @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })" x-text="copied ? 'Copied ✓' : 'Copy'"></button>
+                            <button class="copy-btn"
+                                @click="copyText($refs.code.textContent).then(() => { copied = true; setTimeout(() => copied = false, 1500) })"
+                                x-text="copied ? 'Copied ✓' : 'Copy'"></button>
                         </div>
-                        <pre class="wrap" x-ref="code">Generate 8 short questions about [topic] in JSON: [{"question":"...","ai_answer":"a short, clear answer"}]</pre>
+                        <pre class="wrap"
+                            x-ref="code">Generate 8 short questions about [topic] in JSON: [{"question":"...","ai_answer":"a short, clear answer"}]</pre>
                     </div>
                 </div>
             </div>
@@ -259,7 +281,8 @@
     "answer": 1 (1-based index)
   }
 ]</pre>
-<div class="code-note"><code>answer</code> is the number of the correct option, starting at 1 (1 = first option).</div>
+                    <div class="code-note"><code>answer</code> is the number of the correct option, starting at 1 (1 =
+                        first option).</div>
                 </div>
                 <label class="field-label" for="mcq-input">Your JSON</label>
                 <textarea id="mcq-input" x-model="mcq.input" placeholder="Paste your JSON here…"></textarea>
@@ -276,12 +299,14 @@
                         <div class="options">
                             <template x-for="(opt, oi) in q.options" :key="oi">
                                 <label class="option" :class="optionClass(q, i, oi)">
-                                    <input type="radio" :name="'mcq-' + i" :checked="mcq.answers[i] === oi" @change="mcq.answers[i] = oi" :disabled="mcq.checked" />
+                                    <input type="radio" :name="'mcq-' + i" :checked="mcq.answers[i] === oi"
+                                        @change="mcq.answers[i] = oi" :disabled="mcq.checked" />
                                     <span x-text="opt"></span>
                                 </label>
                             </template>
                         </div>
-                        <p class="feedback" x-show="mcq.checked" :class="feedbackClass(q, i)" x-text="feedbackText(q, i)"></p>
+                        <p class="feedback" x-show="mcq.checked" :class="feedbackClass(q, i)"
+                            x-text="feedbackText(q, i)"></p>
                     </div>
                 </template>
 
@@ -292,7 +317,8 @@
                 <div class="card result" x-show="mcq.checked">
                     <div class="score">
                         <span class="score-num" x-text="mcq.score + ' / ' + mcq.questions.length"></span>
-                        <span class="muted" x-text="'(' + Math.round((mcq.score / mcq.questions.length) * 100) + '%)'"></span>
+                        <span class="muted"
+                            x-text="'(' + Math.round((mcq.score / mcq.questions.length) * 100) + '%)'"></span>
                     </div>
                     <div class="actions">
                         <button class="btn btn-secondary" @click="retakeMcq()">🔄 Retake</button>
@@ -326,8 +352,9 @@
             <div class="card" x-show="fc.cards.length > 0">
                 <div class="flashcard-wrap">
                     <div class="flashcard" :class="{ flipped: fc.flipped }" @click="fc.flipped = !fc.flipped"
-                        @keydown.enter.prevent="fc.flipped = !fc.flipped" @keydown.space.prevent="fc.flipped = !fc.flipped"
-                        tabindex="0" role="button" aria-label="Flip card">
+                        @keydown.enter.prevent="fc.flipped = !fc.flipped"
+                        @keydown.space.prevent="fc.flipped = !fc.flipped" tabindex="0" role="button"
+                        aria-label="Flip card">
                         <div class="flashcard-inner">
                             <div class="flashcard-face flashcard-front" x-text="fc.cards[fc.index]?.front"></div>
                             <div class="flashcard-face flashcard-back" x-text="fc.cards[fc.index]?.back"></div>
@@ -356,7 +383,8 @@
     "ai_answer": "A short, clear answer (optional)"
   }
 ]</pre>
-<div class="code-note"><code>ai_answer</code> is optional. If included, it is shown next to the user's answer after finishing.</div>
+                    <div class="code-note"><code>ai_answer</code> is optional. If included, it is shown next to the
+                        user's answer after finishing.</div>
                 </div>
                 <label class="field-label" for="qa-input">Your JSON</label>
                 <textarea id="qa-input" x-model="qa.input" placeholder="Paste your JSON here…"></textarea>
@@ -368,15 +396,19 @@
 
             <div class="card" x-show="qa.questions.length > 0 && !qa.finished">
                 <div class="qa-meta">
-                    <span class="qa-progress" x-text="'Question ' + (qa.index + 1) + ' / ' + qa.questions.length"></span>
-                    <span class="muted" x-text="qa.index === qa.questions.length - 1 ? 'Last question. Click Finish when done.' : 'Answer below'"></span>
+                    <span class="qa-progress"
+                        x-text="'Question ' + (qa.index + 1) + ' / ' + qa.questions.length"></span>
+                    <span class="muted"
+                        x-text="qa.index === qa.questions.length - 1 ? 'Last question. Click Finish when done.' : 'Answer below'"></span>
                 </div>
                 <div class="qa-question" x-text="qa.questions[qa.index]?.question"></div>
-                <textarea class="qa-answer" x-model="qa.answers[qa.index]" placeholder="Type your answer here…"></textarea>
+                <textarea class="qa-answer" x-model="qa.answers[qa.index]"
+                    placeholder="Type your answer here…"></textarea>
                 <div class="actions">
                     <button class="btn btn-secondary" x-show="qa.index > 0" @click="qa.index--">◀ Previous</button>
                     <button class="btn" x-show="qa.index < qa.questions.length - 1" @click="qa.index++">Next ▶</button>
-                    <button class="btn btn-success" x-show="qa.index === qa.questions.length - 1" @click="finishQa()">🏁 Finish &amp; Generate Output</button>
+                    <button class="btn btn-success" x-show="qa.index === qa.questions.length - 1" @click="finishQa()">🏁
+                        Finish &amp; Generate Output</button>
                 </div>
             </div>
 
